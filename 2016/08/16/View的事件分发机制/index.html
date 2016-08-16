@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true">
 <meta property="og:image" content="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_interested.png?raw=true">
 <meta property="og:image" content="https://raw.githubusercontent.com/hanhailong/AndroidStudyResources/master/screenshot/view_touch_intercept.png">
-<meta property="og:updated_time" content="2016-08-16T05:48:49.000Z">
+<meta property="og:updated_time" content="2016-08-16T05:53:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的事件分发机制">
 <meta name="twitter:description" content="1.View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
@@ -315,7 +315,7 @@
       
 
       
-        <h2 id="1-View点击事件的传递规则"><a href="#1-View点击事件的传递规则" class="headerlink" title="1.View点击事件的传递规则"></a>1.View点击事件的传递规则</h2><p>首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:<a id="more"></a></p>
+        <h3 id="1-View点击事件的传递规则"><a href="#1-View点击事件的传递规则" class="headerlink" title="1.View点击事件的传递规则"></a>1.View点击事件的传递规则</h3><p>首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:<a id="more"></a></p>
 <p>用来进行事件的分发.如果有事件传递给当前的View,那么该View一定会去调用这个方法</p>
 <p>返回值受当前View的onTouchEvent和下级View的dispatchTouchEvent的影响</p>
 <p>返回值表示当前的事件时候已经被处理完成</p>
@@ -488,8 +488,7 @@
 <p>}</p>
 <p>}</p>
 <p>这里相对比较简单,首先判断是否设置了onTouchListener,如果设置了就去调用onTouch方法,如果返回了false,则去调用onTouchEvent方法; <strong><em>在view设置了onClickListener或者onLongClickListener后,会自动将CLICKABLE或者LONG_CLICKABLE变成ture;</em></strong></p>
-<p>##最后三张图十分清晰</p>
-<p>效果图如下：<br>View不处理事件流程图（View没有消费事件）<a href="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true" target="_blank" rel="external"><img src="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true" alt="Touch Ignore"></a><br>View处理事件<a href="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_interested.png?raw=true" target="_blank" rel="external"><img src="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_interested.png?raw=true" alt="Touch interest"></a><br>事件拦截<a href="https://raw.githubusercontent.com/hanhailong/AndroidStudyResources/master/screenshot/view_touch_intercept.png" target="_blank" rel="external"><img src="https://raw.githubusercontent.com/hanhailong/AndroidStudyResources/master/screenshot/view_touch_intercept.png" alt="Touch Intercept"></a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>三张图十分清晰的描述事件分发,效果图如下：<br>View不处理事件流程图（View没有消费事件）<a href="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true" target="_blank" rel="external"><img src="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true" alt="Touch Ignore"></a><br>View处理事件<a href="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_interested.png?raw=true" target="_blank" rel="external"><img src="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_interested.png?raw=true" alt="Touch interest"></a><br>事件拦截<a href="https://raw.githubusercontent.com/hanhailong/AndroidStudyResources/master/screenshot/view_touch_intercept.png" target="_blank" rel="external"><img src="https://raw.githubusercontent.com/hanhailong/AndroidStudyResources/master/screenshot/view_touch_intercept.png" alt="Touch Intercept"></a></p>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>以后每个知识点的实践学习代码会上传到我的<a href="https://github.com/JangGwa" target="_blank" rel="external">GitHub</a>,欢迎大家一起学习-.-~</p>
 
       
@@ -689,7 +688,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-View点击事件的传递规则"><span class="nav-number">1.</span> <span class="nav-text">1.View点击事件的传递规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Activity对事件的分发"><span class="nav-number">2.</span> <span class="nav-text">2.Activity对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ViewGroup对事件的分发"><span class="nav-number">3.</span> <span class="nav-text">3.ViewGroup对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-View对点击事件的处理过程"><span class="nav-number">4.</span> <span class="nav-text">4.View对点击事件的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-View点击事件的传递规则"><span class="nav-number">1.</span> <span class="nav-text">1.View点击事件的传递规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Activity对事件的分发"><span class="nav-number"></span> <span class="nav-text">2.Activity对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ViewGroup对事件的分发"><span class="nav-number"></span> <span class="nav-text">3.ViewGroup对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-View对点击事件的处理过程"><span class="nav-number"></span> <span class="nav-text">4.View对点击事件的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number"></span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number"></span> <span class="nav-text">附录</span></a></div>
             
           </div>
         </section>
