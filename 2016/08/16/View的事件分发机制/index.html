@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="1.View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
+<meta name="description" content="View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="View的事件分发机制">
 <meta property="og:url" content="http://yoursite.com/2016/08/16/View的事件分发机制/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="1.View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
+<meta property="og:description" content="View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
 <meta property="og:image" content="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true">
 <meta property="og:image" content="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_interested.png?raw=true">
 <meta property="og:image" content="https://raw.githubusercontent.com/hanhailong/AndroidStudyResources/master/screenshot/view_touch_intercept.png">
-<meta property="og:updated_time" content="2016-08-16T05:53:12.000Z">
+<meta property="og:updated_time" content="2016-08-16T06:02:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的事件分发机制">
-<meta name="twitter:description" content="1.View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
+<meta name="twitter:description" content="View点击事件的传递规则首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:">
 <meta name="twitter:image" content="https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/view_touch_ignorant.png?raw=true">
 
 
@@ -315,7 +315,7 @@
       
 
       
-        <h3 id="1-View点击事件的传递规则"><a href="#1-View点击事件的传递规则" class="headerlink" title="1.View点击事件的传递规则"></a>1.View点击事件的传递规则</h3><p>首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:<a id="more"></a></p>
+        <h2 id="View点击事件的传递规则"><a href="#View点击事件的传递规则" class="headerlink" title="View点击事件的传递规则"></a>View点击事件的传递规则</h2><p>首先,用户触摸屏幕的时候系统必须对事件做出相应反应.而这个事件就是产生一个MotionEvent然后按照一定的规则传递给每一个View去进行相应的处理.这就是我们所谓的事件分发了.点击事件的分发主要设计一下几个主要的方法:<a id="more"></a></p>
 <p>用来进行事件的分发.如果有事件传递给当前的View,那么该View一定会去调用这个方法</p>
 <p>返回值受当前View的onTouchEvent和下级View的dispatchTouchEvent的影响</p>
 <p>返回值表示当前的事件时候已经被处理完成</p>
@@ -353,7 +353,7 @@
 <p>4.如果View不消耗ACTION_DWON以外的事件,那么这个点击事件就会消失,不会在交还给父View处理.最后会交回activity处理.</p>
 <p>5.ViewGroup默认不拦截任何事件,他的onInterceptTouch方法默认返回false;View没有onInterceptTouch方法,收到事件他的onTouchEvent事件就会被调用.</p>
 <p>6.View的onTouchEvent默认都会消耗事件(返回true),除非他是不可点击的(clickable和龙Clickable同时为false).View的longClickable默认都是false,clickable分情况.</p>
-<h2 id="2-Activity对事件的分发"><a href="#2-Activity对事件的分发" class="headerlink" title="2.Activity对事件的分发"></a>2.Activity对事件的分发</h2><p>点击事件用MotionEvent来表示,当点击事件发生的时候,事件最先传递给当前Activity,由Activity的dispatchTouchEvent来进行事件派发,具体工作是由Activity内部的Windows来处理的.Windows会将事件传递给decor view,即当前View的root view.先看一下Activity的dispatchTouchEvent源码:</p>
+<h2 id="Activity对事件的分发"><a href="#Activity对事件的分发" class="headerlink" title="Activity对事件的分发"></a>Activity对事件的分发</h2><p>点击事件用MotionEvent来表示,当点击事件发生的时候,事件最先传递给当前Activity,由Activity的dispatchTouchEvent来进行事件派发,具体工作是由Activity内部的Windows来处理的.Windows会将事件传递给decor view,即当前View的root view.先看一下Activity的dispatchTouchEvent源码:</p>
 <p>public boolean diapatchTouchEvent(MotionEvent e) {</p>
 <p>if (e.getAction() == MotionEvent.ACTION_DOWN) {</p>
 <p>onUserInteraction();</p>
@@ -392,7 +392,7 @@
 <p>return mDecor;</p>
 <p>}</p>
 <p>到了这事件会继续分发,到我们通过setContentView设置的ViewGroup那里继续处理.</p>
-<h2 id="3-ViewGroup对事件的分发"><a href="#3-ViewGroup对事件的分发" class="headerlink" title="3.ViewGroup对事件的分发"></a>3.ViewGroup对事件的分发</h2><p>// Check for interception.</p>
+<h2 id="ViewGroup对事件的分发"><a href="#ViewGroup对事件的分发" class="headerlink" title="ViewGroup对事件的分发"></a>ViewGroup对事件的分发</h2><p>// Check for interception.</p>
 <p>final boolean intercepted;</p>
 <p>if (actionMasked == MotionEvent.ACTION_DOWN|| mFirstTouchTarget != null) {</p>
 <p>final boolean disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != 0;</p>
@@ -474,7 +474,7 @@
 <p>if (preorderedList != null) preorderedList.clear();</p>
 <p>}</p>
 <p>逻辑也比清晰,遍历ViewGroup的所有子View,找出能接受事件的所有元素;要满足两个条件:1.坐标是否落在子View中2.是否正在播放动画.满足这两个条件,就会分发给他来处理,要是返回了true就表示事件已经被处理,mFirstTouchTarget就会被赋值并终止此次分发,否则继续分发过程.</p>
-<h2 id="4-View对点击事件的处理过程"><a href="#4-View对点击事件的处理过程" class="headerlink" title="4.View对点击事件的处理过程"></a>4.View对点击事件的处理过程</h2><p>//View#dispatchTouchEvent</p>
+<h2 id="View对点击事件的处理过程"><a href="#View对点击事件的处理过程" class="headerlink" title="View对点击事件的处理过程"></a>View对点击事件的处理过程</h2><p>//View#dispatchTouchEvent</p>
 <p>if (onFilterTouchEventForSecurity(event)) {</p>
 <p>//noinspection SimplifiableIfStatement</p>
 <p>ListenerInfo li = mListenerInfo;</p>
@@ -688,7 +688,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-View点击事件的传递规则"><span class="nav-number">1.</span> <span class="nav-text">1.View点击事件的传递规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Activity对事件的分发"><span class="nav-number"></span> <span class="nav-text">2.Activity对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ViewGroup对事件的分发"><span class="nav-number"></span> <span class="nav-text">3.ViewGroup对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-View对点击事件的处理过程"><span class="nav-number"></span> <span class="nav-text">4.View对点击事件的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number"></span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number"></span> <span class="nav-text">附录</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#View点击事件的传递规则"><span class="nav-number">1.</span> <span class="nav-text">View点击事件的传递规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity对事件的分发"><span class="nav-number">2.</span> <span class="nav-text">Activity对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewGroup对事件的分发"><span class="nav-number">3.</span> <span class="nav-text">ViewGroup对事件的分发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View对点击事件的处理过程"><span class="nav-number">4.</span> <span class="nav-text">View对点击事件的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a></li></ol></div>
             
           </div>
         </section>
