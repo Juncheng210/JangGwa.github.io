@@ -481,6 +481,139 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/14/GitHub+Hexo免费搭建酷炫个人博客/" itemprop="url">
+                  Page+Hexo免费搭建酷炫个人博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-14T15:53:47+08:00" content="2016-08-14">
+              2016-08-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/14/GitHub+Hexo免费搭建酷炫个人博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/GitHub+Hexo免费搭建酷炫个人博客/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/14/GitHub+Hexo免费搭建酷炫个人博客/" class="leancloud_visitors" data-flag-title="Page+Hexo免费搭建酷炫个人博客">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我的理解，个人博客是第二份简历，甚至比简历还重要；而且个人博客可以记录很多东西，它可以永久存留。</p>
+<p>说实话，搭建这个博客还是挺艰辛的，经历了各种错误，各种找资料，踩过各种坑，终于打造好了我的博客。好吧，废话不多说了，开始吧。先放自己的<a href="http://www.janggwa.cn" target="_blank" rel="external">blog</a>看下效果</p>
+<h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>1.安装Node<br>到Node.js<a href="https://nodejs.org/" target="_blank" rel="external">官网</a>下载相应平台的最新版本，一路安装即可。<br>2.安装Git<br>安装Xcode自带有Git。<br>3.申请GitHub<br>申请一个<a href="http://www.github.com" target="_blank" rel="external">GitHub</a>账号，配置好SSH Keys。</p>
+<p>4.安装hexo：</p>
+<p>$ sudo npm install -g hexo</p>
+<p>5.Node和Git都安装好后新建个文件夹blog，然后进入blog</p>
+<p>$ cd blog</p>
+<p>6.初始化<br>然后，执行init命令初始化hexo到blog目录</p>
+<p>$ hexo init</p>
+<p>7.生成静态页面<br>cd 到你的blog目录，执行如下命令，生成静态页面至hexo\public\目录。</p>
+<p>$ hexo g<br>执行完执行</p>
+<p>$ hexo d</p>
+<p>8.本地启动<br>启动本地服务，执行完下面命令浏览器输入localhost:4000就可以看见你的个人博客了</p>
+<p>$ hexo s</p>
+<p>9.配置Github<br>新建Repository，与你用户名对应的仓库，仓库名必须为your_user_name.github.io。比如我的<a href="https://github.com/JangGwa/JangGwa.github.io" target="_blank" rel="external">JangGwa.github.io</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1798479-3d51b2f9d753ae12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建Repository.png"></p>
+<p>10.建立关联<br>现在我们需要打开blog文件夹里的_config.yml文件，来建立关联,翻到最下面，改成我这样子的。要注意的是，该文件格式要求极为严格，缺少一个空格都会导致运行错误。小提示：不要用Tab缩进，用两个空格符。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1798479-52061d5d71b94741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="建立关联.png"></p>
+<p>11.执行如下命令才能使用git部署</p>
+<p>$ npm install hexo-deployer-git –save</p>
+<p>12.完工</p>
+<p>$ hexo g</p>
+<p>$ hexo d<br>然后再浏览器中输入<a href="http://janggwa.github.io/" target="_blank" rel="external">http://JangGwa.github.io/</a>就行了，我的github的账户叫JangGwa,把这个改成你github的账户名就行了</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>希望大家能打造一个满意的个人博客，做更好的自己~.~<br>有什么问题也可以问我-.-</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/14/about/" itemprop="url">
                   About JangGwa
                 </a>
@@ -636,7 +769,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -653,7 +786,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
