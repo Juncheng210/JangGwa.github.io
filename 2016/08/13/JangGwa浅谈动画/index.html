@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="动画," />
 
 
 
@@ -84,28 +84,22 @@
 
 
 
-<meta name="description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
-但是IntentService有下面几个局限性：
-
-不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
-工作任务队列是顺序执">
+<meta name="description" content="我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。
+Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPropertyAnimator
+然后在ValueAnimator中抓住一下两个概念1.TypeEvaluator2.TimeInterpolat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JangGwa浅谈IntentService">
-<meta property="og:url" content="http://yoursite.com/2016/07/24/JangGwa浅谈IntentService/index.html">
+<meta property="og:title" content="JangGwa浅谈动画">
+<meta property="og:url" content="http://yoursite.com/2016/08/13/JangGwa浅谈动画/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
-但是IntentService有下面几个局限性：
-
-不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
-工作任务队列是顺序执">
-<meta property="og:updated_time" content="2016-08-17T06:02:44.000Z">
+<meta property="og:description" content="我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。
+Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPropertyAnimator
+然后在ValueAnimator中抓住一下两个概念1.TypeEvaluator2.TimeInterpolat">
+<meta property="og:updated_time" content="2016-08-17T06:26:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JangGwa浅谈IntentService">
-<meta name="twitter:description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
-但是IntentService有下面几个局限性：
-
-不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
-工作任务队列是顺序执">
+<meta name="twitter:title" content="JangGwa浅谈动画">
+<meta name="twitter:description" content="我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。
+Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPropertyAnimator
+然后在ValueAnimator中抓住一下两个概念1.TypeEvaluator2.TimeInterpolat">
 
 
 
@@ -126,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/24/JangGwa浅谈IntentService/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/13/JangGwa浅谈动画/"/>
 
-  <title> JangGwa浅谈IntentService | JangGwa's home </title>
+  <title> JangGwa浅谈动画 | JangGwa's home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +261,7 @@
             
             
               
-                JangGwa浅谈IntentService
+                JangGwa浅谈动画
               
             
           </h1>
@@ -279,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-24T15:59:47+08:00" content="2016-07-24">
-              2016-07-24
+            <time itemprop="dateCreated" datetime="2016-08-13T14:22:08+08:00" content="2016-08-13">
+              2016-08-13
             </time>
           </span>
 
@@ -290,8 +284,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/24/JangGwa浅谈IntentService/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/JangGwa浅谈IntentService/" itemprop="commentsCount"></span>
+                <a href="/2016/08/13/JangGwa浅谈动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/JangGwa浅谈动画/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,7 +295,7 @@
 
           
           
-             <span id="/2016/07/24/JangGwa浅谈IntentService/" class="leancloud_visitors" data-flag-title="JangGwa浅谈IntentService">
+             <span id="/2016/08/13/JangGwa浅谈动画/" class="leancloud_visitors" data-flag-title="JangGwa浅谈动画">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -323,48 +317,75 @@
       
 
       
-        <p>IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。</p>
-<p>但是IntentService有下面几个局限性：</p>
+        <p>我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。</p>
+<p>Property动画抓住三个核心概念<br>1.ValueAnimator<br>2.ObjectAnimator<br>3.ViewPropertyAnimator</p>
+<p>然后在ValueAnimator中抓住一下两个概念<br>1.TypeEvaluator<br>2.TimeInterpolator</p>
+<p>可以说，搞清楚以上5点，一切动画尽在掌握之中<a id="more"></a></p>
+<h3 id="ValueAnimator"><a href="#ValueAnimator" class="headerlink" title="ValueAnimator"></a>ValueAnimator</h3><p>ValueAnimator是整个属性动画机制当中最核心的一个类，属性动画的运行机制是通过不断地对值进行操作来实现的，而初始值和结束值之间的动画过渡就是由ValueAnimator这个类来负责计算的。</p>
+<pre><code>ValueAnimator anim = ValueAnimator.ofFloat(0f, 1f);  
+anim.setDuration(300);  
+anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {  
+@Override  
+public void onAnimationUpdate(ValueAnimator animation) {  
+    float currentValue = (float) animation.getAnimatedValue();  
+    Log.d(&quot;TAG&quot;, &quot;cuurent value is &quot; + currentValue);  
+  }  
+});  
+anim.start();  
+</code></pre><h3 id="ObjectAnimator"><a href="#ObjectAnimator" class="headerlink" title="ObjectAnimator"></a>ObjectAnimator</h3><p>相比于ValueAnimator，ObjectAnimator可能才是我们最常接触到的类，因为ValueAnimator只不过是对值进行了一个平滑的动画过渡，但我们实际使用到这种功能的场景好像并不多。而ObjectAnimator则就不同了，它是可以直接对任意对象的任意属性进行动画操作的，比如说View的alpha、rotation、translationX和scaleY这几个值，分别可以完成淡入淡出、旋转、水平移动、垂直缩放这几种动画。</p>
+<pre><code>ObjectAnimator animator = ObjectAnimator.ofFloat(textview, &quot;alpha&quot;, 1f, 0f, 1f);  
+animator.setDuration(5000);  
+animator.start();  
+</code></pre><h3 id="AnimatorSet"><a href="#AnimatorSet" class="headerlink" title="AnimatorSet"></a>AnimatorSet</h3><p>AnimatorSet 提供了一个把多个动画组合成一个组合的机制，并可设置组中动画的时序关系，如同时播放，顺序播放等。</p>
 <ul>
-<li>不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。</li>
-<li>工作任务队列是顺序执行的，如果一个任务正在IntentService中执行，此时你再发送一个新的任务请求，这个新的任务会一直等待直到前面一个任务执行完毕才开始执行。</li>
-<li>正在执行的任务无法打断。</li>
+<li>after(Animator anim)   将现有动画插入到传入的动画之后执行</li>
+<li>after(long delay)   将现有动画延迟指定毫秒后执行</li>
+<li>before(Animator anim)   将现有动画插入到传入的动画之前执行</li>
+<li>with(Animator anim)   将现有动画和传入的动画同时执行</li>
 </ul>
-<p>虽然有上面那些限制，然而在在大多数情况下，IntentService都是执行简单后台任务操作的理想选择。<a id="more"></a></p>
-<h3 id="创建IntentService"><a href="#创建IntentService" class="headerlink" title="创建IntentService"></a>创建IntentService</h3><p>创建一个IntentService组件，需要自定义一个新的类，它继承自IntentService，并重写onHandleIntent()方法</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>一个普通Service组件的其他回调，例如onStartCommand()会被IntentService自动调用。在IntentService中，要避免重写那些回调。</p>
-<pre><code>public class MyService extends IntentService { 
-  @Override 
-  protected void onHandleIntent(Intent workIntent) { 
-  dataString = workIntent.getDataString(); 
- }}
-</code></pre><h3 id="在Manifest文件中定义IntentService"><a href="#在Manifest文件中定义IntentService" class="headerlink" title="在Manifest文件中定义IntentService"></a>在Manifest文件中定义IntentService</h3><p>IntentService需要在manifest文件添加相应的条目。</p>
-<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p><service>标签并没有包含任何intent filter。因为发送任务给IntentService的Activity需要使用显式Intent，所以不需要filter。这也意味着只有在同一个app或者其他使用同一个UserID的组件才能够访问到这个Service。</service></p>
-<pre><code>&lt;application 
-  android:icon=&quot;@drawable/icon&quot; 
-  android:label=&quot;@string/app_name&quot;&gt;
-  &lt;service 
-    android:name=&quot;.MyService&quot; 
-    android:exported=&quot;false&quot;/&gt;
-&lt;application/&gt;
-</code></pre><h3 id="创建任务请求并发送到IntentService"><a href="#创建任务请求并发送到IntentService" class="headerlink" title="创建任务请求并发送到IntentService"></a>创建任务请求并发送到IntentService</h3><p>一旦执行了startService()，IntentService在自己本身的onHandleIntent()方法里面开始执行这个任务，任务结束之后，会自动停止这个Service。</p>
-<pre><code>mServiceIntent = new Intent(getActivity(), MyService.class);
-mServiceIntent.setData(Uri.parse(dataUrl));
-getActivity().startService(mServiceIntent);
-</code></pre><h3 id="利用IntentService-发送任务状态"><a href="#利用IntentService-发送任务状态" class="headerlink" title="利用IntentService 发送任务状态"></a>利用IntentService 发送任务状态</h3><p>通过执行LocalBroadcastManager.sendBroadcast()来发送Intent。Intent被发送到任何有注册接受它的组件中。为了获取到LocalBroadcastManager的实例，可以执行getInstance()。</p>
-<pre><code>Intent localIntent = new Intent(Constants.BROADCAST_ACTION)     
-.putExtra(Constants.EXTENDED_DATA_STATUS, status);     
-LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
-</code></pre><h3 id="接收来自IntentService的状态广播"><a href="#接收来自IntentService的状态广播" class="headerlink" title="接收来自IntentService的状态广播"></a>接收来自IntentService的状态广播</h3><p>为了接受广播的数据对象，需要使用BroadcastReceiver的子类并实现BroadcastReceiver.onReceive()的方法，这里可以接收LocalBroadcastManager发出的广播数据。</p>
-<pre><code>private class ResponseReceiver extends BroadcastReceiver{ 
-  DownloadStateReceiver() { } 
-  public void onReceive(Context context, Intent intent) {
-}}
-</code></pre><p>一旦定义了BroadcastReceiver，也应该定义actions，categories与data用过滤广播。为了给系统注册这个BroadcastReceiver和IntentFilter，需要通过LocalBroadcastManager执行registerReceiver()的方法。</p>
-<pre><code>statusIntentFilter = new IntentFilter(Constants.ACTION_ZOOM_IMAGE);
-LocalBroadcastManager.getInstance(getActivity())
-.registerReceiver( mDownloadStateReceiver, mIntentFilter);
-</code></pre><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>使用LocalBroadcastManager结合IntentService其实是一种很典型高效的做法，同时也更符合OO的思想，通过广播注册与反注册的方式，对两个组件进行解耦。如果使用Handler传递到后台线程作为回调，容易带来的内存泄漏。原因是：匿名内部类对外面的Actvitiy持有引用，如果在Acitivity被销毁的时候，没有对Handler进行显式的解绑，会导致Activity无法正常销毁，这样自然就有了内存泄漏</p>
+<pre><code>ObjectAnimator moveIn = ObjectAnimator.ofFloat(textview, &quot;translationX&quot;, -500f, 0f);  
+ObjectAnimator rotate = ObjectAnimator.ofFloat(textview, &quot;rotation&quot;, 0f, 360f);  
+ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(textview, &quot;alpha&quot;, 1f, 0f, 1f);  
+AnimatorSet animSet = new AnimatorSet();  
+animSet.play(rotate).with(fadeInOut).after(moveIn);  
+animSet.setDuration(5000);  
+animSet.start();  
+</code></pre><h3 id="TypeEvalutors"><a href="#TypeEvalutors" class="headerlink" title="TypeEvalutors"></a>TypeEvalutors</h3><p>evaluate()方法当中传入了三个参数，第一个参数fraction非常重要，这个参数用于表示动画的完成度的，我们应该根据它来计算当前动画的值应该是多少，第二第三个参数分别表示动画的初始值和结束值。那么下面代码的逻辑就比较清晰了，用结束值减去初始值，算出它们之间的差值，然后乘以fraction这个系数，再加上初始值，那么就得到当前动画的值了。</p>
+<pre><code>public class FloatEvaluator implements TypeEvaluator { 
+  public Object evaluate(float fraction, Object startValue, Object endValue) { 
+    float startFloat = ((Number) startValue).floatValue(); 
+    return startFloat + fraction * (((Number) endValue).floatValue() - startFloat);}
+}
+</code></pre><h3 id="TimeInterpolator"><a href="#TimeInterpolator" class="headerlink" title="TimeInterpolator"></a>TimeInterpolator</h3><p>Time interplator定义了属性值变化的方式，如线性均匀改变，开始慢然后逐渐快等。在Property Animation中是TimeInterplator，在View Animation中是Interplator，这两个是一样的，在3.0之前只有Interplator，3.0之后实现代码转移至了TimeInterplator。Interplator继承自TimeInterplator，内部没有任何其他代码。</p>
+<ul>
+<li>AccelerateInterpolator　　　　　     加速，开始时慢中间加速</li>
+<li>DecelerateInterpolator　　　 　　减速，开始时快然后减速</li>
+<li>AccelerateDecelerateInterolator　先加速后减速，开始结束时慢，中间加速</li>
+<li>AnticipateInterpolator　　　　　  反向 ，先向相反方向改变一段再加速播放</li>
+<li>AnticipateOvershootInterpolator　 反向加回弹，先向相反方向改变，再加速播放</li>
+<li>BounceInterpolator　　　　　　　 跳跃，快到目的值时值会跳跃</li>
+<li>CycleIinterpolator　　　　　　　　循环，动画循环一定次数，值的改变为一正弦函数</li>
+<li>LinearInterpolator　　　　　　　　线性，线性均匀改变</li>
+<li>OvershottInterpolator　　　　　　 回弹，最后超出目的值然后缓慢改变到目的值</li>
+</ul>
+<pre><code>private void startAnimation() {  
+Point startPoint = new Point(getWidth() / 2, RADIUS);  
+Point endPoint = new Point(getWidth() / 2, getHeight() - RADIUS);  
+ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);  
+anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {  
+    @Override  
+    public void onAnimationUpdate(ValueAnimator animation) {  
+        currentPoint = (Point) animation.getAnimatedValue();  
+        invalidate();  
+    }  
+});  
+anim.setInterpolator(new BounceInterpolator());  
+anim.setDuration(3000);  
+anim.start();  
+}  
+</code></pre><h3 id="ViewPropertyAnimator"><a href="#ViewPropertyAnimator" class="headerlink" title="ViewPropertyAnimator"></a>ViewPropertyAnimator</h3><p>ViewPropertyAnimator其实算不上什么高级技巧，它的用法格外的简单，只不过和前面所学的所有属性动画的知识不同，它并不是在3.0系统当中引入的，而是在3.1系统当中附增的一个新的功能。</p>
+<pre><code>textview.animate().x(500).y(500).setDuration(5000);  
+</code></pre><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>源码上传在<a href="http://www.github.com/JangGwa" target="_blank" rel="external">GitHub</a>,欢迎大家一起学习-.-~</p>
 
       
     </div>
@@ -387,7 +408,7 @@ LocalBroadcastManager.getInstance(getActivity())
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag">#Android</a>
+            <a href="/tags/动画/" rel="tag">#动画</a>
           
         </div>
       
@@ -396,16 +417,16 @@ LocalBroadcastManager.getInstance(getActivity())
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/22/酷炫的音量调节控件/" rel="next" title="酷炫的音量调节控件">
-                <i class="fa fa-chevron-left"></i> 酷炫的音量调节控件
+              <a href="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/" rel="next" title="JangGwa浅谈SwipeRefreshLayout">
+                <i class="fa fa-chevron-left"></i> JangGwa浅谈SwipeRefreshLayout
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/27/JangGwa浅谈SwipeRefreshLayout/" rel="prev" title="JangGwa浅谈SwipeRefreshLayout">
-                JangGwa浅谈SwipeRefreshLayout <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/16/Android酷炫钱包掉落动画/" rel="prev" title="Android酷炫钱包掉落动画">
+                Android酷炫钱包掉落动画 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -432,8 +453,8 @@ LocalBroadcastManager.getInstance(getActivity())
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/24/JangGwa浅谈IntentService/"
-           data-title="JangGwa浅谈IntentService" data-url="http://yoursite.com/2016/07/24/JangGwa浅谈IntentService/">
+      <div class="ds-thread" data-thread-key="2016/08/13/JangGwa浅谈动画/"
+           data-title="JangGwa浅谈动画" data-url="http://yoursite.com/2016/08/13/JangGwa浅谈动画/">
       </div>
     
   </div>
@@ -478,7 +499,7 @@ LocalBroadcastManager.getInstance(getActivity())
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -495,7 +516,7 @@ LocalBroadcastManager.getInstance(getActivity())
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -599,7 +620,7 @@ LocalBroadcastManager.getInstance(getActivity())
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建IntentService"><span class="nav-number">1.</span> <span class="nav-text">创建IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Manifest文件中定义IntentService"><span class="nav-number">2.</span> <span class="nav-text">在Manifest文件中定义IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-1"><span class="nav-number">2.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建任务请求并发送到IntentService"><span class="nav-number">3.</span> <span class="nav-text">创建任务请求并发送到IntentService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用IntentService-发送任务状态"><span class="nav-number">4.</span> <span class="nav-text">利用IntentService 发送任务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收来自IntentService的状态广播"><span class="nav-number">5.</span> <span class="nav-text">接收来自IntentService的状态广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ValueAnimator"><span class="nav-number">1.</span> <span class="nav-text">ValueAnimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">2.</span> <span class="nav-text">ObjectAnimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AnimatorSet"><span class="nav-number">3.</span> <span class="nav-text">AnimatorSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TypeEvalutors"><span class="nav-number">4.</span> <span class="nav-text">TypeEvalutors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TimeInterpolator"><span class="nav-number">5.</span> <span class="nav-text">TimeInterpolator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewPropertyAnimator"><span class="nav-number">6.</span> <span class="nav-text">ViewPropertyAnimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">7.</span> <span class="nav-text">附录</span></a></li></ol></div>
             
           </div>
         </section>
