@@ -86,21 +86,27 @@
 
 <meta name="description" content="最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。
 没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(http://www.github.com/JangGwa/GoldDrop)
-项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。">
+
+项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。
+设置背景 this.getWindow().setBackgroundDrawable(new Co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android酷炫钱包掉落动画">
 <meta property="og:url" content="http://yoursite.com/2016/08/16/Android酷炫钱包掉落动画/index.html">
 <meta property="og:site_name" content="JangGwa's home">
 <meta property="og:description" content="最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。
 没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(http://www.github.com/JangGwa/GoldDrop)
-项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。">
+
+项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。
+设置背景 this.getWindow().setBackgroundDrawable(new Co">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-08-17T06:28:55.000Z">
+<meta property="og:updated_time" content="2016-08-17T06:39:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android酷炫钱包掉落动画">
 <meta name="twitter:description" content="最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。
 没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(http://www.github.com/JangGwa/GoldDrop)
-项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。">
+
+项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。
+设置背景 this.getWindow().setBackgroundDrawable(new Co">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -320,8 +326,14 @@
 
       
         <p>最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。</p>
-<p>没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(<a href="http://www.github.com/JangGwa/GoldDrop" target="_blank" rel="external">http://www.github.com/JangGwa/GoldDrop</a>)<br><img src="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。<a id="more"></a></p>
+<p>没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(<a href="http://www.github.com/JangGwa/GoldDrop" target="_blank" rel="external">http://www.github.com/JangGwa/GoldDrop</a>)</p>
+<ul>
+<li>项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。</li>
+<li>设置背景 this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));</li>
+<li>设置同时出现在屏幕上的数量 建议64以内 过多会引起卡顿 flakeView.addFlakes(38);</li>
+<li>主题，布局，文字都可以很方便的修改调用<a id="more"></a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <h3 id="钱包的位置，大小，旋转，速度"><a href="#钱包的位置，大小，旋转，速度" class="headerlink" title="钱包的位置，大小，旋转，速度"></a>钱包的位置，大小，旋转，速度</h3><pre><code>DisplayMetrics metrics = DvAppUtil.getDisplayMetrics(Context);
 if (metrics.widthPixels &gt;= 1080) {    
 flake.width = (int) (5 + (float) Math.random() * 80);    
