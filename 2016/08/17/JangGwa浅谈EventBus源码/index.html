@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="动画," />
+  <meta name="keywords" content="源码解析," />
 
 
 
@@ -84,30 +84,20 @@
 
 
 
-<meta name="description" content="最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。
-没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(http://www.github.com/JangGwa/GoldDrop)
-
-项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。
-设置背景 this.getWindow().setBackgroundDrawable(new Co">
+<meta name="description" content="简述EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android酷炫钱包掉落动画">
-<meta property="og:url" content="http://yoursite.com/2016/08/16/Android酷炫钱包掉落动画/index.html">
+<meta property="og:title" content="JangGwa浅谈EventBus源码">
+<meta property="og:url" content="http://yoursite.com/2016/08/17/JangGwa浅谈EventBus源码/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。
-没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(http://www.github.com/JangGwa/GoldDrop)
-
-项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。
-设置背景 this.getWindow().setBackgroundDrawable(new Co">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-08-17T06:39:05.000Z">
+<meta property="og:description" content="简述EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1798479-3423f8b0897856d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1798479-3f6649a1c40abd0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1798479-941e66242130b8ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-08-17T07:09:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android酷炫钱包掉落动画">
-<meta name="twitter:description" content="最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。
-没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(http://www.github.com/JangGwa/GoldDrop)
-
-项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。
-设置背景 this.getWindow().setBackgroundDrawable(new Co">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="JangGwa浅谈EventBus源码">
+<meta name="twitter:description" content="简述EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1798479-3423f8b0897856d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -128,9 +118,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/16/Android酷炫钱包掉落动画/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/17/JangGwa浅谈EventBus源码/"/>
 
-  <title> Android酷炫钱包掉落动画 | JangGwa's home </title>
+  <title> JangGwa浅谈EventBus源码 | JangGwa's home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +259,7 @@
             
             
               
-                Android酷炫钱包掉落动画
+                JangGwa浅谈EventBus源码
               
             
           </h1>
@@ -281,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T14:22:51+08:00" content="2016-08-16">
-              2016-08-16
+            <time itemprop="dateCreated" datetime="2016-08-17T15:04:46+08:00" content="2016-08-17">
+              2016-08-17
             </time>
           </span>
 
@@ -292,8 +282,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/16/Android酷炫钱包掉落动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/16/Android酷炫钱包掉落动画/" itemprop="commentsCount"></span>
+                <a href="/2016/08/17/JangGwa浅谈EventBus源码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/JangGwa浅谈EventBus源码/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -303,7 +293,7 @@
 
           
           
-             <span id="/2016/08/16/Android酷炫钱包掉落动画/" class="leancloud_visitors" data-flag-title="Android酷炫钱包掉落动画">
+             <span id="/2016/08/17/JangGwa浅谈EventBus源码/" class="leancloud_visitors" data-flag-title="JangGwa浅谈EventBus源码">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -325,57 +315,131 @@
       
 
       
-        <p>最近有点穷，只好写个酷炫的钱包掉落动画意淫一下。先贴效果，画饼充饥。</p>
-<p>没有背景音乐我忍了是不是，还放不了gif动图只好截了个画面(<a href="http://www.github.com/JangGwa/GoldDrop" target="_blank" rel="external">http://www.github.com/JangGwa/GoldDrop</a>)</p>
-<ul>
-<li>项目里还有金币掉落的声音，酷炫的一匹。声音文件保存在/res/raw中，可以自己替换。</li>
-<li>设置背景 this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));</li>
-<li>设置同时出现在屏幕上的数量 建议64以内 过多会引起卡顿 flakeView.addFlakes(38);</li>
-<li>主题，布局，文字都可以很方便的修改调用<a id="more"></a></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1798479-953f43e1074c4efc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h3 id="钱包的位置，大小，旋转，速度"><a href="#钱包的位置，大小，旋转，速度" class="headerlink" title="钱包的位置，大小，旋转，速度"></a>钱包的位置，大小，旋转，速度</h3><pre><code>DisplayMetrics metrics = DvAppUtil.getDisplayMetrics(Context);
-if (metrics.widthPixels &gt;= 1080) {    
-flake.width = (int) (5 + (float) Math.random() * 80);    
-float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();    
-flake.height = (int) (flake.width * hwRatio + 60);
-} else {    
-flake.width = (int) (5 + (float) Math.random() * 50); 
-float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();    
-flake.height = (int) (flake.width * hwRatio + 40);
-}
-flake.x = (float) Math.random() * (xRange - flake.width);
-flake.y = 0 - (flake.height + (float) Math.random() * flake.height);
-flake.speed = 50 + (float) Math.random() * 150;
-flake.rotation = (float) Math.random() * 180 - 90;
-flake.rotationSpeed = (float) Math.random() * 90 - 45;
-</code></pre><h3 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h3><pre><code>protected void onDraw(Canvas canvas) {    
-super.onDraw(canvas);
-for (int i = 0; i &lt; numFlakes; ++i) {    
-Flake flake = flakes.get(i);    
-m.setTranslate(-flake.width / 2, -flake.height / 2);    
-m.postRotate(flake.rotation);    
-m.postTranslate(flake.width / 2 + flake.x, flake.height / 2 + flake.y);    
-canvas.drawBitmap(flake.bitmap, m, null);
-}
-++frames;
-long nowTime = System.currentTimeMillis();
-long deltaTime = nowTime - startTime;
-if (deltaTime &gt; 1000) {    
-float secs = (float) deltaTime / 1000f;    
-fps = (float) frames / secs;    
-startTime = nowTime;    
-frames = 0;
-  }
-}
-</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>// 将flakeView 添加到布局中
-container.addView(flakeView);
-// 设置背景
-this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
-// 设置同时出现在屏幕上的数量 建议64以内 过多会引起卡顿
-flakeView.addFlakes(38);
-</code></pre><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>源码上传在<a href="http://www.github.com/JangGwa/GoldDrop" target="_blank" rel="external">GitHub</a>上，欢迎大家一起学习~.~</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1798479-3423f8b0897856d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="EventBus-Publish-Subscribe.png"></p>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p><a href="https://github.com/greenrobot/EventBus" target="_blank" rel="external">EventBus</a>是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。<a id="more"></a></p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>1.新建一个类，AnyEventType。可以是网络请求返回的字符串，也可以是某个开关状态，也可以是空。</p>
+<pre><code>public class AnyEventType {  
+ public AnyEventType(){}  
+}  
+</code></pre><p>2.注册订阅者</p>
+<pre><code>EventBus.getDefault().register(this);
+</code></pre><p>3.发送事件</p>
+<pre><code>EventBus.getDefault().post(new AnyEventType event);
+</code></pre><p>4.编写响应事件订阅方法</p>
+<pre><code>@Subscribe(threadMode = ThreadMode.BACKGROUND, sticky = true, priority = 100)
+public void hello(String str) {
 
+}  
+</code></pre><p>这里说明一下3.0之后可以通过@Subscribe注解,来确定运行的线程threadMode,是否接受粘性事件sticky以及事件优先级priority,而且方法名不在需要onEvent开头,所以又简洁灵活了不少.</p>
+<p>5.解除注册</p>
+<pre><code>EventBus.getDefault().unregister(this);
+</code></pre><h3 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h3><h5 id="1-新建EventBus"><a href="#1-新建EventBus" class="headerlink" title="1.新建EventBus"></a>1.新建EventBus</h5><ul>
+<li><p>默认可通过静态函数 getDefault 获取单例</p>
+<pre><code>public static EventBus getDefault() {
+  if (defaultInstance == null) {
+    synchronized (EventBus.class) {
+  if (defaultInstance == null) {
+    defaultInstance = new EventBus();
+  }}}
+return defaultInstance;
+}
+</code></pre></li>
+<li><p>EventBusBuilder 新建一个 EventBus</p>
+<pre><code>public static EventBusBuilder builder() {
+return new EventBusBuilder();
+}
+</code></pre></li>
+<li><p>构造函数新建一个EventBus</p>
+<pre><code>public EventBus() {
+  this(DEFAULT_BUILDER);
+}
+</code></pre></li>
+</ul>
+<h5 id="2-register"><a href="#2-register" class="headerlink" title="2.register"></a>2.register</h5><p>register 函数中会先根据订阅者类名去subscriberMethodFinder<br>中查找当前订阅者所有事件响应函数，然后循环每一个事件响应函数，依次执行subscribe 函数</p>
+<pre><code>public void register(Object subscriber) { 
+subscriberClass = subscriber.getClass();
+List&lt;SubscriberMethod&gt; subscriberMethods = subscriberMethodFinder.findSubscriberMethods(subscriberClass); 
+synchronized (this) { 
+  for (SubscriberMethod subscriberMethod : subscriberMethods) { 
+    subscribe(subscriber, subscriberMethod); 
+    } 
+  } 
+}
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/1798479-3f6649a1c40abd0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="register.png"></p>
+<h5 id="3-subscribe"><a href="#3-subscribe" class="headerlink" title="3.subscribe"></a>3.subscribe</h5><p>源码太长就不全部贴出来了</p>
+<p>1.首先通过subscriptionsByEventType得到该事件类型所有订阅者信息队列，根据优先级将当前订阅者信息插入到订阅者队列subscriptionsByEventType中；如果添加过就抛出异常。</p>
+<pre><code>CopyOnWriteArrayList&lt;Subscription&gt; subscriptions = subscriptionsByEventType.get(eventType);
+if (subscriptions == null) {
+    subscriptions = new CopyOnWriteArrayList&lt;&gt;();
+    subscriptionsByEventType.put(eventType, subscriptions);
+  } else {
+  if (subscriptions.contains(newSubscription)) {
+      throw new EventBusException(&quot;Subscriber &quot; + subscriber.getClass() + &quot; already registered to event &quot;+ eventType);
+    }
+  }
+</code></pre><p>2.在typesBySubscriber中得到当前订阅者订阅的所有事件队列，将此事件保存到队列typesBySubscriber中，用于后续取消订阅；</p>
+<pre><code>List&lt;Class&lt;?&gt;&gt; subscribedEvents = typesBySubscriber.get(subscriber); 
+if (subscribedEvents == null) { 
+    subscribedEvents = new ArrayList&lt;&gt;();         
+    typesBySubscriber.put(subscriber, subscribedEvents); 
+  }
+</code></pre><p>3.检查这个事件是否是 Sticky 事件，如果是则立即分发sticky事件</p>
+<pre><code>if (subscriberMethod.sticky) { 
+//eventInheritance 表示是否分发订阅了响应事件类父类事件的方法 
+    if (eventInheritance) { 
+       Set&lt;Map.Entry&lt;Class&lt;?&gt;, Object&gt;&gt; entries = stickyEvents.entrySet(); 
+       for (Map.Entry&lt;Class&lt;?&gt;, Object&gt; entry : entries) { 
+          Class&lt;?&gt; candidateEventType = entry.getKey(); 
+          if (eventType.isAssignableFrom(candidateEventType)) { 
+            Object stickyEvent = entry.getValue(); 
+            checkPostStickyEventToSubscription(newSubscription, stickyEvent); 
+           } 
+        } 
+      } else { 
+        Object stickyEvent = stickyEvents.get(eventType); 
+        checkPostStickyEventToSubscription(newSubscription, stickyEvent); 
+      } 
+}
+</code></pre><h5 id="4-post"><a href="#4-post" class="headerlink" title="4.post"></a>4.post</h5><p>首先得到当前线程的 post 信息PostingThreadState，其中包含事件队列，将当前事件添加到其事件队列中，然后循环调用postSingleEvent 函数发布队列中的每个事件。</p>
+<pre><code>public void post(Object event) { 
+PostingThreadState postingState = currentPostingThreadState.get(); 
+List&lt;Object&gt; eventQueue = postingState.eventQueue; eventQueue.add(event); 
+if (!postingState.isPosting) { 
+    postingState.isMainThread = Looper.getMainLooper() == Looper.myLooper(); 
+    postingState.isPosting = true; 
+    if (postingState.canceled) { 
+      throw new EventBusException(&quot;Internal error. Abort state was not reset&quot;); 
+    } try {
+    while (!eventQueue.isEmpty()) { 
+    postSingleEvent(eventQueue.remove(0), postingState); 
+    } 
+  } finally { 
+    postingState.isPosting = false; 
+    postingState.isMainThread = false; 
+    } 
+  } 
+}
+</code></pre><p>postToSubscription 函数中会判断订阅者的 ThreadMode，从而决定在什么 Mode 下执行事件响应函数。ThreadMode 共有四类：</p>
+<ul>
+<li>PostThread：默认的 ThreadMode，表示在执行 Post 操作的线程直接调用订阅者的事件响应方法，不论该线程是否为主线程（UI 线程）。当该线程为主线程时，响应方法中不能有耗时操作，否则有卡主线程的风险。适用场景：<strong>对于是否在主线程执行无要求，但若 Post 线程为主线程，不能耗时的操作</strong>；</li>
+<li>MainThread：在主线程中执行响应方法。如果发布线程就是主线程，则直接调用订阅者的事件响应方法，否则通过主线程的 Handler 发送消息在主线程中处理——调用订阅者的事件响应函数。显然，MainThread类的方法也不能有耗时操作，以避免卡主线程。适用场景：<strong>必须在主线程执行的操作</strong>；</li>
+<li>BackgroundThread：在后台线程中执行响应方法。如果发布线程<strong>不是</strong>主线程，则直接调用订阅者的事件响应函数，否则启动<strong>唯一的</strong>后台线程去处理。由于后台线程是唯一的，当事件超过一个的时候，它们会被放在队列中依次执行，因此该类响应方法虽然没有PostThread类和MainThread类方法对性能敏感，但最好不要有重度耗时的操作或太频繁的轻度耗时操作，以造成其他操作等待。适用场景：<em>操作轻微耗时且不会过于频繁</em>，即一般的耗时操作都可以放在这里；</li>
+<li>Async：不论发布线程是否为主线程，都使用一个空闲线程来处理。和BackgroundThread不同的是，Async类的所有线程是相互独立的，因此不会出现卡线程的问题。适用场景：<em>长耗时操作，例如网络访问</em>。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1798479-941e66242130b8ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="post.png"></p>
+<h5 id="5-unregister"><a href="#5-unregister" class="headerlink" title="5.unregister"></a>5.unregister</h5><p>通过typesBySubscriber来取出这个subscriber订阅者订阅的事件类型,从typesBySubscriber移除subscriber。</p>
+<pre><code>public synchronized void unregister(Object subscriber) { 
+List&lt;Class&lt;?&gt;&gt; subscribedTypes = typesBySubscriber.get(subscriber); 
+if (subscribedTypes != null) { 
+    for (Class&lt;?&gt; eventType : subscribedTypes) { 
+        unsubscribeByEventType(subscriber, eventType); 
+    } 
+  typesBySubscriber.remove(subscriber); 
+} else { 
+    Log.w(TAG, &quot;Subscriber to unregister was not registered before: &quot; + subscriber.getClass()); 
+  } 
+}
+</code></pre>
       
     </div>
 
@@ -397,7 +461,7 @@ flakeView.addFlakes(38);
       
         <div class="post-tags">
           
-            <a href="/tags/动画/" rel="tag">#动画</a>
+            <a href="/tags/源码解析/" rel="tag">#源码解析</a>
           
         </div>
       
@@ -406,8 +470,8 @@ flakeView.addFlakes(38);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/13/JangGwa浅谈动画/" rel="next" title="JangGwa浅谈动画">
-                <i class="fa fa-chevron-left"></i> JangGwa浅谈动画
+              <a href="/2016/08/13/JangGwa浅谈动画/" rel="next" title="JangGwa浅谈动画(一切动画尽在掌握之中)">
+                <i class="fa fa-chevron-left"></i> JangGwa浅谈动画(一切动画尽在掌握之中)
               </a>
             
           </div>
@@ -438,8 +502,8 @@ flakeView.addFlakes(38);
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/16/Android酷炫钱包掉落动画/"
-           data-title="Android酷炫钱包掉落动画" data-url="http://yoursite.com/2016/08/16/Android酷炫钱包掉落动画/">
+      <div class="ds-thread" data-thread-key="2016/08/17/JangGwa浅谈EventBus源码/"
+           data-title="JangGwa浅谈EventBus源码" data-url="http://yoursite.com/2016/08/17/JangGwa浅谈EventBus源码/">
       </div>
     
   </div>
@@ -501,7 +565,7 @@ flakeView.addFlakes(38);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -605,7 +669,7 @@ flakeView.addFlakes(38);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#钱包的位置，大小，旋转，速度"><span class="nav-number">1.</span> <span class="nav-text">钱包的位置，大小，旋转，速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制"><span class="nav-number">2.</span> <span class="nav-text">绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码解析"><span class="nav-number">3.</span> <span class="nav-text">源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-新建EventBus"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.新建EventBus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-register"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.register</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-subscribe"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.subscribe</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-post"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.post</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-unregister"><span class="nav-number">3.0.5.</span> <span class="nav-text">5.unregister</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
