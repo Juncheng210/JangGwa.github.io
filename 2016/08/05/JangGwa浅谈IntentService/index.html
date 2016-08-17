@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="努力程度之低的社会里，根本轮不到拼天赋">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JangGwa's home">
-<meta property="og:url" content="http://yoursite.com/categories/about/index.html">
+<meta name="description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
+但是IntentService有下面几个局限性：
+
+不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
+工作任务队列是顺序执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JangGwa浅谈IntentService">
+<meta property="og:url" content="http://yoursite.com/2016/08/05/JangGwa浅谈IntentService/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="努力程度之低的社会里，根本轮不到拼天赋">
+<meta property="og:description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
+但是IntentService有下面几个局限性：
+
+不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
+工作任务队列是顺序执">
+<meta property="og:updated_time" content="2016-08-17T06:19:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JangGwa's home">
-<meta name="twitter:description" content="努力程度之低的社会里，根本轮不到拼天赋">
+<meta name="twitter:title" content="JangGwa浅谈IntentService">
+<meta name="twitter:description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
+但是IntentService有下面几个局限性：
+
+不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
+工作任务队列是顺序执">
 
 
 
@@ -113,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/05/JangGwa浅谈IntentService/"/>
 
-  <title> 分类: about | JangGwa's home </title>
+  <title> JangGwa浅谈IntentService | JangGwa's home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -233,47 +246,183 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        about
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JangGwa浅谈IntentService
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-05T15:59:47+08:00" content="2016-08-05">
+              2016-08-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/05/JangGwa浅谈IntentService/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/05/JangGwa浅谈IntentService/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/05/JangGwa浅谈IntentService/" class="leancloud_visitors" data-flag-title="JangGwa浅谈IntentService">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。</p>
+<p>但是IntentService有下面几个局限性：</p>
+<ul>
+<li>不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。</li>
+<li>工作任务队列是顺序执行的，如果一个任务正在IntentService中执行，此时你再发送一个新的任务请求，这个新的任务会一直等待直到前面一个任务执行完毕才开始执行。</li>
+<li>正在执行的任务无法打断。</li>
+</ul>
+<p>虽然有上面那些限制，然而在在大多数情况下，IntentService都是执行简单后台任务操作的理想选择。<a id="more"></a></p>
+<h3 id="创建IntentService"><a href="#创建IntentService" class="headerlink" title="创建IntentService"></a>创建IntentService</h3><p>创建一个IntentService组件，需要自定义一个新的类，它继承自IntentService，并重写onHandleIntent()方法</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>一个普通Service组件的其他回调，例如onStartCommand()会被IntentService自动调用。在IntentService中，要避免重写那些回调。</p>
+<pre><code>public class MyService extends IntentService { 
+  @Override 
+  protected void onHandleIntent(Intent workIntent) { 
+  dataString = workIntent.getDataString(); 
+ }}
+</code></pre><h3 id="在Manifest文件中定义IntentService"><a href="#在Manifest文件中定义IntentService" class="headerlink" title="在Manifest文件中定义IntentService"></a>在Manifest文件中定义IntentService</h3><p>IntentService需要在manifest文件添加相应的条目。</p>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p><service>标签并没有包含任何intent filter。因为发送任务给IntentService的Activity需要使用显式Intent，所以不需要filter。这也意味着只有在同一个app或者其他使用同一个UserID的组件才能够访问到这个Service。</service></p>
+<pre><code>&lt;application 
+  android:icon=&quot;@drawable/icon&quot; 
+  android:label=&quot;@string/app_name&quot;&gt;
+  &lt;service 
+    android:name=&quot;.MyService&quot; 
+    android:exported=&quot;false&quot;/&gt;
+&lt;application/&gt;
+</code></pre><h3 id="创建任务请求并发送到IntentService"><a href="#创建任务请求并发送到IntentService" class="headerlink" title="创建任务请求并发送到IntentService"></a>创建任务请求并发送到IntentService</h3><p>一旦执行了startService()，IntentService在自己本身的onHandleIntent()方法里面开始执行这个任务，任务结束之后，会自动停止这个Service。</p>
+<pre><code>mServiceIntent = new Intent(getActivity(), MyService.class);
+mServiceIntent.setData(Uri.parse(dataUrl));
+getActivity().startService(mServiceIntent);
+</code></pre><h3 id="利用IntentService-发送任务状态"><a href="#利用IntentService-发送任务状态" class="headerlink" title="利用IntentService 发送任务状态"></a>利用IntentService 发送任务状态</h3><p>通过执行LocalBroadcastManager.sendBroadcast()来发送Intent。Intent被发送到任何有注册接受它的组件中。为了获取到LocalBroadcastManager的实例，可以执行getInstance()。</p>
+<pre><code>Intent localIntent = new Intent(Constants.BROADCAST_ACTION)     
+.putExtra(Constants.EXTENDED_DATA_STATUS, status);     
+LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
+</code></pre><h3 id="接收来自IntentService的状态广播"><a href="#接收来自IntentService的状态广播" class="headerlink" title="接收来自IntentService的状态广播"></a>接收来自IntentService的状态广播</h3><p>为了接受广播的数据对象，需要使用BroadcastReceiver的子类并实现BroadcastReceiver.onReceive()的方法，这里可以接收LocalBroadcastManager发出的广播数据。</p>
+<pre><code>private class ResponseReceiver extends BroadcastReceiver{ 
+  DownloadStateReceiver() { } 
+  public void onReceive(Context context, Intent intent) {
+}}
+</code></pre><p>一旦定义了BroadcastReceiver，也应该定义actions，categories与data用过滤广播。为了给系统注册这个BroadcastReceiver和IntentFilter，需要通过LocalBroadcastManager执行registerReceiver()的方法。</p>
+<pre><code>statusIntentFilter = new IntentFilter(Constants.ACTION_ZOOM_IMAGE);
+LocalBroadcastManager.getInstance(getActivity())
+.registerReceiver( mDownloadStateReceiver, mIntentFilter);
+</code></pre><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>使用LocalBroadcastManager结合IntentService其实是一种很典型高效的做法，同时也更符合OO的思想，通过广播注册与反注册的方式，对两个组件进行解耦。如果使用Handler传递到后台线程作为回调，容易带来的内存泄漏。原因是：匿名内部类对外面的Actvitiy持有引用，如果在Acitivity被销毁的时候，没有对Handler进行显式的解绑，会导致Activity无法正常销毁，这样自然就有了内存泄漏</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/14/about/" itemprop="url">
-              
-                <span itemprop="name">About JangGwa</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-14T14:56:36+08:00"
-              content="2016-07-14" >
-          07-14
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/带你跨过Android学习的坑与迷茫/" rel="next" title="带你跨过Android学习的坑与迷茫">
+                <i class="fa fa-chevron-left"></i> 带你跨过Android学习的坑与迷茫
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/" rel="prev" title="JangGwa浅谈SwipeRefreshLayout">
+                JangGwa浅谈SwipeRefreshLayout <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -281,6 +430,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/05/JangGwa浅谈IntentService/"
+           data-title="JangGwa浅谈IntentService" data-url="http://yoursite.com/2016/08/05/JangGwa浅谈IntentService/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -300,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -427,6 +593,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建IntentService"><span class="nav-number">1.</span> <span class="nav-text">创建IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Manifest文件中定义IntentService"><span class="nav-number">2.</span> <span class="nav-text">在Manifest文件中定义IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-1"><span class="nav-number">2.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建任务请求并发送到IntentService"><span class="nav-number">3.</span> <span class="nav-text">创建任务请求并发送到IntentService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用IntentService-发送任务状态"><span class="nav-number">4.</span> <span class="nav-text">利用IntentService 发送任务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收来自IntentService的状态广播"><span class="nav-number">5.</span> <span class="nav-text">接收来自IntentService的状态广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -522,6 +699,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

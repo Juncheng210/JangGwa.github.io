@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -84,15 +84,40 @@
 
 
 
-<meta name="description" content="努力程度之低的社会里，根本轮不到拼天赋">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JangGwa's home">
-<meta property="og:url" content="http://yoursite.com/categories/about/index.html">
+<meta name="description" content="什么是IPC？IPC 即 inter-Process Communication，含义为进程间通信或者硕士跨进程通信。当我们需要在不同的进程之间通信的时候就需要了解Android的IPC。 Android有很多种方式来实现IPC，包括：
+
+使用Bundle，在使用intent调用组件的时候传递数据
+使用文件共享
+使用Messenger
+使用AIDL
+使用Socket
+
+一般来说，我们使用3,4比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IPC机制_AIDL">
+<meta property="og:url" content="http://yoursite.com/2016/07/25/IPC机制-AIDL/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="努力程度之低的社会里，根本轮不到拼天赋">
+<meta property="og:description" content="什么是IPC？IPC 即 inter-Process Communication，含义为进程间通信或者硕士跨进程通信。当我们需要在不同的进程之间通信的时候就需要了解Android的IPC。 Android有很多种方式来实现IPC，包括：
+
+使用Bundle，在使用intent调用组件的时候传递数据
+使用文件共享
+使用Messenger
+使用AIDL
+使用Socket
+
+一般来说，我们使用3,4比较">
+<meta property="og:updated_time" content="2016-08-17T06:17:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JangGwa's home">
-<meta name="twitter:description" content="努力程度之低的社会里，根本轮不到拼天赋">
+<meta name="twitter:title" content="IPC机制_AIDL">
+<meta name="twitter:description" content="什么是IPC？IPC 即 inter-Process Communication，含义为进程间通信或者硕士跨进程通信。当我们需要在不同的进程之间通信的时候就需要了解Android的IPC。 Android有很多种方式来实现IPC，包括：
+
+使用Bundle，在使用intent调用组件的时候传递数据
+使用文件共享
+使用Messenger
+使用AIDL
+使用Socket
+
+一般来说，我们使用3,4比较">
 
 
 
@@ -113,9 +138,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/25/IPC机制-AIDL/"/>
 
-  <title> 分类: about | JangGwa's home </title>
+  <title> IPC机制_AIDL | JangGwa's home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +170,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -233,47 +258,216 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        about
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                IPC机制_AIDL
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-25T22:15:47+08:00" content="2016-07-25">
+              2016-07-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/IPC机制-AIDL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/IPC机制-AIDL/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/25/IPC机制-AIDL/" class="leancloud_visitors" data-flag-title="IPC机制_AIDL">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h3 id="什么是IPC？"><a href="#什么是IPC？" class="headerlink" title="什么是IPC？"></a>什么是IPC？</h3><p>IPC 即 inter-Process Communication，含义为进程间通信或者硕士跨进程通信。当我们需要在不同的进程之间通信的时候就需要了解Android的IPC。 Android有很多种方式来实现IPC，包括：</p>
+<ul>
+<li>使用Bundle，在使用intent调用组件的时候传递数据</li>
+<li>使用文件共享</li>
+<li>使用Messenger</li>
+<li>使用AIDL</li>
+<li>使用Socket</li>
+</ul>
+<p>一般来说，我们使用3,4比较多，其他方式都可以使用，也比较简单，但是会有数据同步的问题。<a id="more"></a></p>
+<h3 id="使用AIDL计算A-B-C"><a href="#使用AIDL计算A-B-C" class="headerlink" title="使用AIDL计算A+B=C"></a>使用AIDL计算A+B=C</h3><p>我们先抛开原理底层不看，来看一下AIDL怎么使用，然后我们在深入学习一下。做一个A+B=C的Demo来学习一下。应用场景是这样的，client端要计算A+B的值，所以去server端调用add()<br>方法来计算，然后server将结果给client，client显示给用户。</p>
+<blockquote>
+<p>注：AIDL 即 Android Interface Definition Language.AIDL is similar to other IDLs you might have worked with. It allows you to define the programming interface that both the client and service agree upon in order to communicate with each other using interprocess communication (IPC). On Android, one process cannot normally access the memory of another process. So to talk, they need to decompose their objects into primitives that the operating system can understand, and marshall the objects across that boundary for you. The code to do that marshalling is tedious to write, so Android handles it for you with AIDL.</p>
+</blockquote>
+<p>AIDL类似于其他你曾经用过的IDL语言.它允许您定义的编程接口,客户端和服务达成一致,以便互相交流使用进程间通信(IPC)。在Android上,一个进程无法正常访问另一个进程的内存。所以说,他们需要他们的对象分解为原语操作系统可以理解,和马歇尔的对象边界。编组的代码是乏味的写,所以与AIDL Android为您处理。<br>编写server端 新建工程什么的略过不说，我们直接新建一个module<br>来模拟server，起名叫AIDLServer</p>
+<p>a. 在AIDLServer中新建AIDL Folder 然后新建一个包 新建一个AIDL文件</p>
+<pre><code>interface IMyAidlInterface {    
+  int add(int num1, int num2);
+}
+</code></pre><p>b. 在接口中添加一个add()方法 添加完成后编译一下module<br> android studio会自动为我们生成相应的java代码(在android SDK的tools里面有一个aidl.exe工具 由他完成这个工作).在Project模式下，可以在AIDLServer-build-generated-source-aidl-debug下面看到相应的java代码</p>
+<p>c. 新建一个Service，然后新建一个IBinder </p>
+<pre><code>public class IAidlService extends Service {    
+@Override    
+public IBinder onBind(Intent intent) {        
+return iBinder;    
+}    
+private IBinder iBinder = new IMyAidlInterface.Stub() { 
+@Override        
+public int add(int num1, int num2) throws RemoteException {            
+return num1 + num2;        
+}    
+};
+}
+</code></pre><p>d. 记得在manifest文件中注册Service，并且声明成android:exported=”true”</p>
+<p>否则会抛出：java.lang.SecurityException: Not allowed to bind to service Intent { cmp=com.janggwa.server/.IAidlService } 这样server就算编写完毕了<br>编写client端</p>
+<p>a. 完成计算界面</p>
+<p>b. 在client端也要编写AIDL文件，且与Server端一致，所以拷贝过去 编译一下</p>
+<p>c. 在MainActivity中添加一个启动Service的方法 在安卓5.0后必须通过显示的方式启动Service；conn是一个ServiceConnection对象，其中有两个回调函数onServiceConnected,onServiceDisconnected，我们可以在‘onServiceConnected`方法中获取到Server端的Service，然后在条用其中的方法</p>
+<pre><code>ServiceConnection conn = new ServiceConnection() {
 
-      <h1 class="post-title">
+@Override
+
+public void onServiceConnected(ComponentName name, IBinder service) {
+
+// 获取到远端的服务
+
+iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
+
+}
+
+@Override
+
+public void onServiceDisconnected(ComponentName name) {
+
+iMyAidlInterface = null;
+
+}
+
+};
+
+private void bindService() {
+
+Intent intent = new Intent();
+
+intent.setComponent(new ComponentName(&quot;com.janggwa.server&quot;,
+&quot;com.janggwa.server.IAidlService&quot;));
+
+boolean isBind = bindService(intent, conn, Context.BIND_AUTO_CREATE);
+Log.d(&quot;TestAIDL&quot;, &quot;请求开启远端服务&quot;);
+if (isBind) {
+Log.d(&quot;TestAIDL&quot;, &quot;bind成功&quot;);
+} else {
+Log.d(&quot;TestAIDL&quot;, &quot;bind失败&quot;);
+}
+}
+</code></pre><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>以后每个知识点的实践学习代码会上传到我的<a href="https://github.com/JangGwa" target="_blank" rel="external">GitHub</a>,欢迎大家一起学习-.-~</p>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/14/about/" itemprop="url">
-              
-                <span itemprop="name">About JangGwa</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-14T14:56:36+08:00"
-              content="2016-07-14" >
-          07-14
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/22/酷炫的音量调节控件/" rel="next" title="酷炫的音量调节控件">
+                <i class="fa fa-chevron-left"></i> 酷炫的音量调节控件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/27/Andorid消息机制/" rel="prev" title="Andorid消息机制">
+                Andorid消息机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -281,6 +475,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/25/IPC机制-AIDL/"
+           data-title="IPC机制_AIDL" data-url="http://yoursite.com/2016/07/25/IPC机制-AIDL/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -300,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -427,6 +638,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是IPC？"><span class="nav-number">1.</span> <span class="nav-text">什么是IPC？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用AIDL计算A-B-C"><span class="nav-number">2.</span> <span class="nav-text">使用AIDL计算A+B=C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -522,6 +744,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
