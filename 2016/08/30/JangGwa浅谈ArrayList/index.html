@@ -96,7 +96,7 @@
 1.基于数组实现，是一个动态数组，其容量能自动增长。
 2.ArrayList不是线程安全的，建议在单线程中使用，多线程可以选择Vector或CopyOnWriteArrayList。
 3.实现了RandomAccess接口，可以通过下标序号">
-<meta property="og:updated_time" content="2016-08-30T07:38:35.000Z">
+<meta property="og:updated_time" content="2016-08-30T07:48:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JangGwa浅谈ArrayList">
 <meta name="twitter:description" content="ArrayList介绍对于ArrayList，相信大家都很熟悉，天天都会接触到它。JangGwa从源码角度再和你熟悉一遍，这边先简单介绍下ArrayList。
@@ -536,7 +536,7 @@ protected void removeRange(int fromIndex, int toIndex) {
 </ul>
 <p> <strong>原因</strong>:toArray()返回的是 Object[] 数组，<strong>Java不支持向下转型。</strong>(例如，将Object[]转换为的Integer[])</p>
 <p> <strong>解决方案</strong></p>
-<pre><code> public static Integer[] vectorToArray2(ArrayList&lt;Integer&gt; v) {
+<pre><code>public static Integer[] vectorToArray2(ArrayList&lt;Integer&gt; v) {
     Integer[] newText = (Integer[])v.toArray(new Integer[0]);
     return newText;
 }
