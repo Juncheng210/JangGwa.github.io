@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="动画," />
+  <meta name="keywords" content="源码解析," />
 
 
 
@@ -84,22 +84,20 @@
 
 
 
-<meta name="description" content="我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。
-Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPropertyAnimator
-然后在ValueAnimator中抓住一下两个概念1.TypeEvaluator2.TimeInterpolat">
+<meta name="description" content="简述EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JangGwa浅谈动画(一切动画尽在掌握之中)">
-<meta property="og:url" content="http://yoursite.com/2016/08/13/JangGwa浅谈动画/index.html">
+<meta property="og:title" content="JangGwa浅谈EventBus源码">
+<meta property="og:url" content="http://yoursite.com/2016/08/17/JangGwa浅谈EventBus/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。
-Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPropertyAnimator
-然后在ValueAnimator中抓住一下两个概念1.TypeEvaluator2.TimeInterpolat">
-<meta property="og:updated_time" content="2016-08-17T06:54:22.000Z">
+<meta property="og:description" content="简述EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。">
+<meta property="og:image" content="http://oc1m6u2t9.bkt.clouddn.com/EventBus-Publish-Subscribe.png">
+<meta property="og:image" content="http://oc1m6u2t9.bkt.clouddn.com/register.png">
+<meta property="og:image" content="http://oc1m6u2t9.bkt.clouddn.com/post.png">
+<meta property="og:updated_time" content="2016-08-30T07:50:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JangGwa浅谈动画(一切动画尽在掌握之中)">
-<meta name="twitter:description" content="我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。
-Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPropertyAnimator
-然后在ValueAnimator中抓住一下两个概念1.TypeEvaluator2.TimeInterpolat">
+<meta name="twitter:title" content="JangGwa浅谈EventBus源码">
+<meta name="twitter:description" content="简述EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。">
+<meta name="twitter:image" content="http://oc1m6u2t9.bkt.clouddn.com/EventBus-Publish-Subscribe.png">
 
 
 
@@ -120,9 +118,9 @@ Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPrope
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/13/JangGwa浅谈动画/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/17/JangGwa浅谈EventBus/"/>
 
-  <title> JangGwa浅谈动画(一切动画尽在掌握之中) | JangGwa's home </title>
+  <title> JangGwa浅谈EventBus源码 | JangGwa's home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +259,7 @@ Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPrope
             
             
               
-                JangGwa浅谈动画(一切动画尽在掌握之中)
+                JangGwa浅谈EventBus源码
               
             
           </h1>
@@ -273,8 +271,8 @@ Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPrope
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-13T14:22:08+08:00" content="2016-08-13">
-              2016-08-13
+            <time itemprop="dateCreated" datetime="2016-08-17T15:04:46+08:00" content="2016-08-17">
+              2016-08-17
             </time>
           </span>
 
@@ -284,8 +282,8 @@ Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPrope
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/13/JangGwa浅谈动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/JangGwa浅谈动画/" itemprop="commentsCount"></span>
+                <a href="/2016/08/17/JangGwa浅谈EventBus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/JangGwa浅谈EventBus/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -295,7 +293,7 @@ Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPrope
 
           
           
-             <span id="/2016/08/13/JangGwa浅谈动画/" class="leancloud_visitors" data-flag-title="JangGwa浅谈动画(一切动画尽在掌握之中)">
+             <span id="/2016/08/17/JangGwa浅谈EventBus/" class="leancloud_visitors" data-flag-title="JangGwa浅谈EventBus源码">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -317,76 +315,134 @@ Property动画抓住三个核心概念1.ValueAnimator2.ObjectAnimator3.ViewPrope
       
 
       
-        <p>我们熟悉的Frame动画和Tween动画是Android 3.0之前的，这边就不讲解了。今天我要讲的是从3.0开始引入的Property动画。</p>
-<p>Property动画抓住三个核心概念<br>1.ValueAnimator<br>2.ObjectAnimator<br>3.ViewPropertyAnimator</p>
-<p>然后在ValueAnimator中抓住一下两个概念<br>1.TypeEvaluator<br>2.TimeInterpolator</p>
-<p>可以说，搞清楚以上5点，一切动画尽在掌握之中<a id="more"></a></p>
-<h3 id="ValueAnimator"><a href="#ValueAnimator" class="headerlink" title="ValueAnimator"></a>ValueAnimator</h3><p>ValueAnimator是整个属性动画机制当中最核心的一个类，属性动画的运行机制是通过不断地对值进行操作来实现的，而初始值和结束值之间的动画过渡就是由ValueAnimator这个类来负责计算的。</p>
-<pre><code>ValueAnimator anim = ValueAnimator.ofFloat(0f, 1f);  
-anim.setDuration(300);  
-anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {  
-@Override  
-public void onAnimationUpdate(ValueAnimator animation) {  
-    float currentValue = (float) animation.getAnimatedValue();  
-    Log.d(&quot;TAG&quot;, &quot;cuurent value is &quot; + currentValue);  
-  }  
-});  
-anim.start();  
-</code></pre><h3 id="ObjectAnimator"><a href="#ObjectAnimator" class="headerlink" title="ObjectAnimator"></a>ObjectAnimator</h3><p>相比于ValueAnimator，ObjectAnimator可能才是我们最常接触到的类，因为ValueAnimator只不过是对值进行了一个平滑的动画过渡，但我们实际使用到这种功能的场景好像并不多。而ObjectAnimator则就不同了，它是可以直接对任意对象的任意属性进行动画操作的，比如说View的alpha、rotation、translationX和scaleY这几个值，分别可以完成淡入淡出、旋转、水平移动、垂直缩放这几种动画。</p>
-<pre><code>ObjectAnimator animator = ObjectAnimator.ofFloat(textview, &quot;alpha&quot;, 1f, 0f, 1f);  
-animator.setDuration(5000);  
-animator.start();  
-</code></pre><h3 id="AnimatorSet"><a href="#AnimatorSet" class="headerlink" title="AnimatorSet"></a>AnimatorSet</h3><p>AnimatorSet 提供了一个把多个动画组合成一个组合的机制，并可设置组中动画的时序关系，如同时播放，顺序播放等。</p>
-<ul>
-<li>after(Animator anim)   将现有动画插入到传入的动画之后执行</li>
-<li>after(long delay)   将现有动画延迟指定毫秒后执行</li>
-<li>before(Animator anim)   将现有动画插入到传入的动画之前执行</li>
-<li>with(Animator anim)   将现有动画和传入的动画同时执行</li>
-</ul>
-<pre><code>ObjectAnimator moveIn = ObjectAnimator.ofFloat(textview, &quot;translationX&quot;, -500f, 0f);  
-ObjectAnimator rotate = ObjectAnimator.ofFloat(textview, &quot;rotation&quot;, 0f, 360f);  
-ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(textview, &quot;alpha&quot;, 1f, 0f, 1f);  
-AnimatorSet animSet = new AnimatorSet();  
-animSet.play(rotate).with(fadeInOut).after(moveIn);  
-animSet.setDuration(5000);  
-animSet.start();  
-</code></pre><h3 id="TypeEvalutors"><a href="#TypeEvalutors" class="headerlink" title="TypeEvalutors"></a>TypeEvalutors</h3><p>evaluate()方法当中传入了三个参数，第一个参数fraction非常重要，这个参数用于表示动画的完成度的，我们应该根据它来计算当前动画的值应该是多少，第二第三个参数分别表示动画的初始值和结束值。那么下面代码的逻辑就比较清晰了，用结束值减去初始值，算出它们之间的差值，然后乘以fraction这个系数，再加上初始值，那么就得到当前动画的值了。</p>
-<pre><code>public class FloatEvaluator implements TypeEvaluator { 
-  public Object evaluate(float fraction, Object startValue, Object endValue) { 
-    float startFloat = ((Number) startValue).floatValue(); 
-    return startFloat + fraction * (((Number) endValue).floatValue() - startFloat);}
-}
-</code></pre><h3 id="TimeInterpolator"><a href="#TimeInterpolator" class="headerlink" title="TimeInterpolator"></a>TimeInterpolator</h3><p>Time interplator定义了属性值变化的方式，如线性均匀改变，开始慢然后逐渐快等。在Property Animation中是TimeInterplator，在View Animation中是Interplator，这两个是一样的，在3.0之前只有Interplator，3.0之后实现代码转移至了TimeInterplator。Interplator继承自TimeInterplator，内部没有任何其他代码。</p>
-<ul>
-<li>AccelerateInterpolator　　　　　     加速，开始时慢中间加速</li>
-<li>DecelerateInterpolator　　　 　　减速，开始时快然后减速</li>
-<li>AccelerateDecelerateInterolator　先加速后减速，开始结束时慢，中间加速</li>
-<li>AnticipateInterpolator　　　　　  反向 ，先向相反方向改变一段再加速播放</li>
-<li>AnticipateOvershootInterpolator　 反向加回弹，先向相反方向改变，再加速播放</li>
-<li>BounceInterpolator　　　　　　　 跳跃，快到目的值时值会跳跃</li>
-<li>CycleIinterpolator　　　　　　　　循环，动画循环一定次数，值的改变为一正弦函数</li>
-<li>LinearInterpolator　　　　　　　　线性，线性均匀改变</li>
-<li>OvershottInterpolator　　　　　　 回弹，最后超出目的值然后缓慢改变到目的值</li>
-</ul>
-<pre><code>private void startAnimation() {  
-Point startPoint = new Point(getWidth() / 2, RADIUS);  
-Point endPoint = new Point(getWidth() / 2, getHeight() - RADIUS);  
-ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);  
-anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {  
-    @Override  
-    public void onAnimationUpdate(ValueAnimator animation) {  
-        currentPoint = (Point) animation.getAnimatedValue();  
-        invalidate();  
-    }  
-});  
-anim.setInterpolator(new BounceInterpolator());  
-anim.setDuration(3000);  
-anim.start();  
+        <p><img src="http://oc1m6u2t9.bkt.clouddn.com/EventBus-Publish-Subscribe.png" alt="image"></p>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p><a href="https://github.com/greenrobot/EventBus" target="_blank" rel="external">EventBus</a>是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。优点是开销小，代码更优雅，以及将发送者和接收者解耦。<a id="more"></a></p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>1.新建一个类，AnyEventType。可以是网络请求返回的字符串，也可以是某个开关状态，也可以是空。</p>
+<pre><code>public class AnyEventType {  
+ public AnyEventType(){}  
 }  
-</code></pre><h3 id="ViewPropertyAnimator"><a href="#ViewPropertyAnimator" class="headerlink" title="ViewPropertyAnimator"></a>ViewPropertyAnimator</h3><p>ViewPropertyAnimator其实算不上什么高级技巧，它的用法格外的简单，只不过和前面所学的所有属性动画的知识不同，它并不是在3.0系统当中引入的，而是在3.1系统当中附增的一个新的功能。</p>
-<pre><code>textview.animate().x(500).y(500).setDuration(5000);  
-</code></pre><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>源码上传在<a href="http://www.github.com/JangGwa" target="_blank" rel="external">GitHub</a>,欢迎大家一起学习-.-~</p>
+</code></pre><p>2.注册订阅者</p>
+<pre><code>EventBus.getDefault().register(this);
+</code></pre><p>3.发送事件</p>
+<pre><code>EventBus.getDefault().post(new AnyEventType event);
+</code></pre><p>4.编写响应事件订阅方法</p>
+<pre><code>@Subscribe(threadMode = ThreadMode.BACKGROUND, sticky = true, priority = 100)
+public void hello(String str) {
 
+}  
+</code></pre><p>这里说明一下3.0之后可以通过@Subscribe注解,来确定运行的线程threadMode,是否接受粘性事件sticky以及事件优先级priority,而且方法名不在需要onEvent开头,所以又简洁灵活了不少.</p>
+<p>5.解除注册</p>
+<pre><code>EventBus.getDefault().unregister(this);
+</code></pre><h3 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h3><h5 id="1-新建EventBus"><a href="#1-新建EventBus" class="headerlink" title="1.新建EventBus"></a>1.新建EventBus</h5><ul>
+<li><p>默认可通过静态函数 getDefault 获取单例</p>
+<pre><code>public static EventBus getDefault() {
+  if (defaultInstance == null) {
+    synchronized (EventBus.class) {
+  if (defaultInstance == null) {
+    defaultInstance = new EventBus();
+  }}}
+return defaultInstance;
+}
+</code></pre></li>
+<li><p>EventBusBuilder 新建一个 EventBus</p>
+<pre><code>public static EventBusBuilder builder() {
+return new EventBusBuilder();
+}
+</code></pre></li>
+<li><p>构造函数新建一个EventBus</p>
+<pre><code>public EventBus() {
+  this(DEFAULT_BUILDER);
+}
+</code></pre></li>
+</ul>
+<h5 id="2-register"><a href="#2-register" class="headerlink" title="2.register"></a>2.register</h5><p>register 函数中会先根据订阅者类名去subscriberMethodFinder<br>中查找当前订阅者所有事件响应函数，然后循环每一个事件响应函数，依次执行subscribe 函数</p>
+<pre><code>public void register(Object subscriber) { 
+subscriberClass = subscriber.getClass();
+List&lt;SubscriberMethod&gt; subscriberMethods = subscriberMethodFinder.findSubscriberMethods(subscriberClass); 
+synchronized (this) { 
+  for (SubscriberMethod subscriberMethod : subscriberMethods) { 
+    subscribe(subscriber, subscriberMethod); 
+    } 
+  } 
+}
+</code></pre><div align="center"><br><br><img src="http://oc1m6u2t9.bkt.clouddn.com/register.png" width="520" align="center"><br></div>
+
+<h5 id="3-subscribe"><a href="#3-subscribe" class="headerlink" title="3.subscribe"></a>3.subscribe</h5><p>源码太长就不全部贴出来了</p>
+<p>1.首先通过subscriptionsByEventType得到该事件类型所有订阅者信息队列，根据优先级将当前订阅者信息插入到订阅者队列subscriptionsByEventType中；如果添加过就抛出异常。</p>
+<pre><code>CopyOnWriteArrayList&lt;Subscription&gt; subscriptions = subscriptionsByEventType.get(eventType);
+if (subscriptions == null) {
+    subscriptions = new CopyOnWriteArrayList&lt;&gt;();
+    subscriptionsByEventType.put(eventType, subscriptions);
+  } else {
+  if (subscriptions.contains(newSubscription)) {
+      throw new EventBusException(&quot;Subscriber &quot; + subscriber.getClass() + &quot; already registered to event &quot;+ eventType);
+    }
+  }
+</code></pre><p>2.在typesBySubscriber中得到当前订阅者订阅的所有事件队列，将此事件保存到队列typesBySubscriber中，用于后续取消订阅；</p>
+<pre><code>List&lt;Class&lt;?&gt;&gt; subscribedEvents = typesBySubscriber.get(subscriber); 
+if (subscribedEvents == null) { 
+    subscribedEvents = new ArrayList&lt;&gt;();         
+    typesBySubscriber.put(subscriber, subscribedEvents); 
+  }
+</code></pre><p>3.检查这个事件是否是 Sticky 事件，如果是则立即分发sticky事件</p>
+<pre><code>if (subscriberMethod.sticky) { 
+//eventInheritance 表示是否分发订阅了响应事件类父类事件的方法 
+    if (eventInheritance) { 
+       Set&lt;Map.Entry&lt;Class&lt;?&gt;, Object&gt;&gt; entries = stickyEvents.entrySet(); 
+       for (Map.Entry&lt;Class&lt;?&gt;, Object&gt; entry : entries) { 
+          Class&lt;?&gt; candidateEventType = entry.getKey(); 
+          if (eventType.isAssignableFrom(candidateEventType)) { 
+            Object stickyEvent = entry.getValue(); 
+            checkPostStickyEventToSubscription(newSubscription, stickyEvent); 
+           } 
+        } 
+      } else { 
+        Object stickyEvent = stickyEvents.get(eventType); 
+        checkPostStickyEventToSubscription(newSubscription, stickyEvent); 
+      } 
+}
+</code></pre><h5 id="4-post"><a href="#4-post" class="headerlink" title="4.post"></a>4.post</h5><p>首先得到当前线程的 post 信息PostingThreadState，其中包含事件队列，将当前事件添加到其事件队列中，然后循环调用postSingleEvent 函数发布队列中的每个事件。</p>
+<pre><code>public void post(Object event) { 
+PostingThreadState postingState = currentPostingThreadState.get(); 
+List&lt;Object&gt; eventQueue = postingState.eventQueue; eventQueue.add(event); 
+if (!postingState.isPosting) { 
+    postingState.isMainThread = Looper.getMainLooper() == Looper.myLooper(); 
+    postingState.isPosting = true; 
+    if (postingState.canceled) { 
+      throw new EventBusException(&quot;Internal error. Abort state was not reset&quot;); 
+    } try {
+    while (!eventQueue.isEmpty()) { 
+    postSingleEvent(eventQueue.remove(0), postingState); 
+    } 
+  } finally { 
+    postingState.isPosting = false; 
+    postingState.isMainThread = false; 
+    } 
+  } 
+}
+</code></pre><p>postToSubscription 函数中会判断订阅者的 ThreadMode，从而决定在什么 Mode 下执行事件响应函数。ThreadMode 共有四类：</p>
+<ul>
+<li>PostThread：默认的 ThreadMode，表示在执行 Post 操作的线程直接调用订阅者的事件响应方法，不论该线程是否为主线程（UI 线程）。当该线程为主线程时，响应方法中不能有耗时操作，否则有卡主线程的风险。适用场景：<strong>对于是否在主线程执行无要求，但若 Post 线程为主线程，不能耗时的操作</strong>；</li>
+<li>MainThread：在主线程中执行响应方法。如果发布线程就是主线程，则直接调用订阅者的事件响应方法，否则通过主线程的 Handler 发送消息在主线程中处理——调用订阅者的事件响应函数。显然，MainThread类的方法也不能有耗时操作，以避免卡主线程。适用场景：<strong>必须在主线程执行的操作</strong>；</li>
+<li>BackgroundThread：在后台线程中执行响应方法。如果发布线程<strong>不是</strong>主线程，则直接调用订阅者的事件响应函数，否则启动<strong>唯一的</strong>后台线程去处理。由于后台线程是唯一的，当事件超过一个的时候，它们会被放在队列中依次执行，因此该类响应方法虽然没有PostThread类和MainThread类方法对性能敏感，但最好不要有重度耗时的操作或太频繁的轻度耗时操作，以造成其他操作等待。适用场景：<em>操作轻微耗时且不会过于频繁</em>，即一般的耗时操作都可以放在这里；</li>
+<li>Async：不论发布线程是否为主线程，都使用一个空闲线程来处理。和BackgroundThread不同的是，Async类的所有线程是相互独立的，因此不会出现卡线程的问题。适用场景：<em>长耗时操作，例如网络访问</em>。</li>
+</ul>
+<div align="center"><br><img src="http://oc1m6u2t9.bkt.clouddn.com/post.png" width="520" align="center"><br></div>
+
+
+<h5 id="5-unregister"><a href="#5-unregister" class="headerlink" title="5.unregister"></a>5.unregister</h5><p>通过typesBySubscriber来取出这个subscriber订阅者订阅的事件类型,从typesBySubscriber移除subscriber。</p>
+<pre><code>public synchronized void unregister(Object subscriber) { 
+List&lt;Class&lt;?&gt;&gt; subscribedTypes = typesBySubscriber.get(subscriber); 
+if (subscribedTypes != null) { 
+    for (Class&lt;?&gt; eventType : subscribedTypes) { 
+        unsubscribeByEventType(subscriber, eventType); 
+    } 
+  typesBySubscriber.remove(subscriber); 
+} else { 
+    Log.w(TAG, &quot;Subscriber to unregister was not registered before: &quot; + subscriber.getClass()); 
+  } 
+}
+</code></pre>
       
     </div>
 
@@ -408,7 +464,7 @@ anim.start();
       
         <div class="post-tags">
           
-            <a href="/tags/动画/" rel="tag">#动画</a>
+            <a href="/tags/源码解析/" rel="tag">#源码解析</a>
           
         </div>
       
@@ -417,16 +473,16 @@ anim.start();
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/" rel="next" title="JangGwa浅谈SwipeRefreshLayout">
-                <i class="fa fa-chevron-left"></i> JangGwa浅谈SwipeRefreshLayout
+              <a href="/2016/08/13/JangGwa浅谈动画/" rel="next" title="JangGwa浅谈动画(一切动画尽在掌握之中)">
+                <i class="fa fa-chevron-left"></i> JangGwa浅谈动画(一切动画尽在掌握之中)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/17/JangGwa浅谈EventBus/" rel="prev" title="JangGwa浅谈EventBus源码">
-                JangGwa浅谈EventBus源码 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/30/JangGwa浅谈ArrayList/" rel="prev" title="JangGwa浅谈ArrayList">
+                JangGwa浅谈ArrayList <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -453,8 +509,8 @@ anim.start();
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/13/JangGwa浅谈动画/"
-           data-title="JangGwa浅谈动画(一切动画尽在掌握之中)" data-url="http://yoursite.com/2016/08/13/JangGwa浅谈动画/">
+      <div class="ds-thread" data-thread-key="2016/08/17/JangGwa浅谈EventBus/"
+           data-title="JangGwa浅谈EventBus源码" data-url="http://yoursite.com/2016/08/17/JangGwa浅谈EventBus/">
       </div>
     
   </div>
@@ -620,7 +676,7 @@ anim.start();
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ValueAnimator"><span class="nav-number">1.</span> <span class="nav-text">ValueAnimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ObjectAnimator"><span class="nav-number">2.</span> <span class="nav-text">ObjectAnimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AnimatorSet"><span class="nav-number">3.</span> <span class="nav-text">AnimatorSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TypeEvalutors"><span class="nav-number">4.</span> <span class="nav-text">TypeEvalutors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TimeInterpolator"><span class="nav-number">5.</span> <span class="nav-text">TimeInterpolator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewPropertyAnimator"><span class="nav-number">6.</span> <span class="nav-text">ViewPropertyAnimator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">7.</span> <span class="nav-text">附录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码解析"><span class="nav-number">3.</span> <span class="nav-text">源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-新建EventBus"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.新建EventBus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-register"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.register</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-subscribe"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.subscribe</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-post"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.post</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-unregister"><span class="nav-number">3.0.5.</span> <span class="nav-text">5.unregister</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
