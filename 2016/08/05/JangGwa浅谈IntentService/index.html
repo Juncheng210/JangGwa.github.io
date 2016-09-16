@@ -84,28 +84,25 @@
 
 
 
-<meta name="description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
-但是IntentService有下面几个局限性：
+<meta name="description" content="IntentService 为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外 IntentService 的执行还不受 UI 生命周期的影响，以此来确保 AsyncTask 能够顺利运行。
+但是 IntentService 有下面几个局限性：
 
-不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
-工作任务队列是顺序执">
+不可以直接和 UI 做交互。为了把他执行的结果体现在UI上，需要把结果返回给 Activity">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JangGwa浅谈IntentService">
 <meta property="og:url" content="http://yoursite.com/2016/08/05/JangGwa浅谈IntentService/index.html">
 <meta property="og:site_name" content="JangGwa's home">
-<meta property="og:description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
-但是IntentService有下面几个局限性：
+<meta property="og:description" content="IntentService 为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外 IntentService 的执行还不受 UI 生命周期的影响，以此来确保 AsyncTask 能够顺利运行。
+但是 IntentService 有下面几个局限性：
 
-不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
-工作任务队列是顺序执">
-<meta property="og:updated_time" content="2016-08-17T06:19:19.000Z">
+不可以直接和 UI 做交互。为了把他执行的结果体现在UI上，需要把结果返回给 Activity">
+<meta property="og:updated_time" content="2016-09-16T14:30:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JangGwa浅谈IntentService">
-<meta name="twitter:description" content="IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。
-但是IntentService有下面几个局限性：
+<meta name="twitter:description" content="IntentService 为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外 IntentService 的执行还不受 UI 生命周期的影响，以此来确保 AsyncTask 能够顺利运行。
+但是 IntentService 有下面几个局限性：
 
-不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。
-工作任务队列是顺序执">
+不可以直接和 UI 做交互。为了把他执行的结果体现在UI上，需要把结果返回给 Activity">
 
 
 
@@ -323,23 +320,23 @@
       
 
       
-        <p>IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。</p>
-<p>但是IntentService有下面几个局限性：</p>
+        <p>IntentService 为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外 IntentService 的执行还不受 UI 生命周期的影响，以此来确保 AsyncTask 能够顺利运行。</p>
+<p>但是 IntentService 有下面几个局限性：</p>
 <ul>
-<li>不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。</li>
+<li>不可以直接和 UI 做交互。为了把他执行的结果体现在UI上，需要把结果返回给 Activity。</li>
 <li>工作任务队列是顺序执行的，如果一个任务正在IntentService中执行，此时你再发送一个新的任务请求，这个新的任务会一直等待直到前面一个任务执行完毕才开始执行。</li>
 <li>正在执行的任务无法打断。</li>
 </ul>
-<p>虽然有上面那些限制，然而在在大多数情况下，IntentService都是执行简单后台任务操作的理想选择。<a id="more"></a></p>
-<h3 id="创建IntentService"><a href="#创建IntentService" class="headerlink" title="创建IntentService"></a>创建IntentService</h3><p>创建一个IntentService组件，需要自定义一个新的类，它继承自IntentService，并重写onHandleIntent()方法</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>一个普通Service组件的其他回调，例如onStartCommand()会被IntentService自动调用。在IntentService中，要避免重写那些回调。</p>
+<p>虽然有上面那些限制，然而在在大多数情况下，IntentService 都是执行简单后台任务操作的理想选择。<a id="more"></a></p>
+<h3 id="创建-IntentService"><a href="#创建-IntentService" class="headerlink" title="创建 IntentService"></a>创建 IntentService</h3><p>创建一个 IntentService 组件，需要自定义一个新的类，它继承自 IntentService，并重写<code>onHandleIntent()</code>方法</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>一个普通 Service 组件的其他回调，例如<code>onStartCommand()</code>会被 IntentService 自动调用。在 IntentService 中，要避免重写那些回调。</p>
 <pre><code>public class MyService extends IntentService { 
   @Override 
   protected void onHandleIntent(Intent workIntent) { 
   dataString = workIntent.getDataString(); 
  }}
-</code></pre><h3 id="在Manifest文件中定义IntentService"><a href="#在Manifest文件中定义IntentService" class="headerlink" title="在Manifest文件中定义IntentService"></a>在Manifest文件中定义IntentService</h3><p>IntentService需要在manifest文件添加相应的条目。</p>
-<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p><service>标签并没有包含任何intent filter。因为发送任务给IntentService的Activity需要使用显式Intent，所以不需要filter。这也意味着只有在同一个app或者其他使用同一个UserID的组件才能够访问到这个Service。</service></p>
+</code></pre><h3 id="在-Manifest-文件中定义-IntentService"><a href="#在-Manifest-文件中定义-IntentService" class="headerlink" title="在 Manifest 文件中定义 IntentService"></a>在 Manifest 文件中定义 IntentService</h3><p>IntentService 需要在 manifest 文件添加相应的条目。</p>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p><service>标签并没有包含任何 intent filter。因为发送任务给 IntentService 的 Activity 需要使用显式 Intent，所以不需要 filter。这也意味着只有在同一个 app 或者其他使用同一个 UserID 的组件才能够访问到这个 Service。</service></p>
 <pre><code>&lt;application 
   android:icon=&quot;@drawable/icon&quot; 
   android:label=&quot;@string/app_name&quot;&gt;
@@ -347,24 +344,24 @@
     android:name=&quot;.MyService&quot; 
     android:exported=&quot;false&quot;/&gt;
 &lt;application/&gt;
-</code></pre><h3 id="创建任务请求并发送到IntentService"><a href="#创建任务请求并发送到IntentService" class="headerlink" title="创建任务请求并发送到IntentService"></a>创建任务请求并发送到IntentService</h3><p>一旦执行了startService()，IntentService在自己本身的onHandleIntent()方法里面开始执行这个任务，任务结束之后，会自动停止这个Service。</p>
+</code></pre><h3 id="创建任务请求并发送到-IntentService"><a href="#创建任务请求并发送到-IntentService" class="headerlink" title="创建任务请求并发送到 IntentService"></a>创建任务请求并发送到 IntentService</h3><p>一旦执行了<code>startService()</code>，IntentService 在自己本身的<code>onHandleIntent()</code>方法里面开始执行这个任务，任务结束之后，会自动停止这个 Service。</p>
 <pre><code>mServiceIntent = new Intent(getActivity(), MyService.class);
 mServiceIntent.setData(Uri.parse(dataUrl));
 getActivity().startService(mServiceIntent);
-</code></pre><h3 id="利用IntentService-发送任务状态"><a href="#利用IntentService-发送任务状态" class="headerlink" title="利用IntentService 发送任务状态"></a>利用IntentService 发送任务状态</h3><p>通过执行LocalBroadcastManager.sendBroadcast()来发送Intent。Intent被发送到任何有注册接受它的组件中。为了获取到LocalBroadcastManager的实例，可以执行getInstance()。</p>
+</code></pre><h3 id="利用-IntentService-发送任务状态"><a href="#利用-IntentService-发送任务状态" class="headerlink" title="利用 IntentService 发送任务状态"></a>利用 IntentService 发送任务状态</h3><p>通过执行<code>LocalBroadcastManager.sendBroadcast()</code>来发送 Intent。Intent 被发送到任何有注册接受它的组件中。为了获取到 LocalBroadcastManager 的实例，可以执行<code>getInstance()</code>。</p>
 <pre><code>Intent localIntent = new Intent(Constants.BROADCAST_ACTION)     
 .putExtra(Constants.EXTENDED_DATA_STATUS, status);     
 LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
-</code></pre><h3 id="接收来自IntentService的状态广播"><a href="#接收来自IntentService的状态广播" class="headerlink" title="接收来自IntentService的状态广播"></a>接收来自IntentService的状态广播</h3><p>为了接受广播的数据对象，需要使用BroadcastReceiver的子类并实现BroadcastReceiver.onReceive()的方法，这里可以接收LocalBroadcastManager发出的广播数据。</p>
+</code></pre><h3 id="接收来自-IntentService-的状态广播"><a href="#接收来自-IntentService-的状态广播" class="headerlink" title="接收来自 IntentService 的状态广播"></a>接收来自 IntentService 的状态广播</h3><p>为了接受广播的数据对象，需要使用 BroadcastReceiver 的子类并实现<code>BroadcastReceiver.onReceive()</code>的方法，这里可以接收  LocalBroadcastManager 发出的广播数据。</p>
 <pre><code>private class ResponseReceiver extends BroadcastReceiver{ 
   DownloadStateReceiver() { } 
   public void onReceive(Context context, Intent intent) {
 }}
-</code></pre><p>一旦定义了BroadcastReceiver，也应该定义actions，categories与data用过滤广播。为了给系统注册这个BroadcastReceiver和IntentFilter，需要通过LocalBroadcastManager执行registerReceiver()的方法。</p>
+</code></pre><p>一旦定义了 BroadcastReceiver，也应该定义 actions，categories 与 data 用过滤广播。为了给系统注册这个BroadcastReceiver 和 IntentFilter，需要通过 LocalBroadcastManager 执行<code>registerReceiver()</code>的方法。</p>
 <pre><code>statusIntentFilter = new IntentFilter(Constants.ACTION_ZOOM_IMAGE);
 LocalBroadcastManager.getInstance(getActivity())
 .registerReceiver( mDownloadStateReceiver, mIntentFilter);
-</code></pre><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>使用LocalBroadcastManager结合IntentService其实是一种很典型高效的做法，同时也更符合OO的思想，通过广播注册与反注册的方式，对两个组件进行解耦。如果使用Handler传递到后台线程作为回调，容易带来的内存泄漏。原因是：匿名内部类对外面的Actvitiy持有引用，如果在Acitivity被销毁的时候，没有对Handler进行显式的解绑，会导致Activity无法正常销毁，这样自然就有了内存泄漏</p>
+</code></pre><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>使用 LocalBroadcastManager 结合 IntentService 其实是一种很典型高效的做法，同时也更符合OO的思想，通过广播注册与反注册的方式，对两个组件进行解耦。如果使用 Handler 传递到后台线程作为回调，容易带来的内存泄漏。原因是：匿名内部类对外面的 Actvitiy 持有引用，如果在 Acitivity 被销毁的时候，没有对 Handler 进行显式的解绑，会导致 Activity 无法正常销毁，这样自然就有了内存泄漏</p>
 
       
     </div>
@@ -599,7 +596,7 @@ LocalBroadcastManager.getInstance(getActivity())
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建IntentService"><span class="nav-number">1.</span> <span class="nav-text">创建IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Manifest文件中定义IntentService"><span class="nav-number">2.</span> <span class="nav-text">在Manifest文件中定义IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-1"><span class="nav-number">2.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建任务请求并发送到IntentService"><span class="nav-number">3.</span> <span class="nav-text">创建任务请求并发送到IntentService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用IntentService-发送任务状态"><span class="nav-number">4.</span> <span class="nav-text">利用IntentService 发送任务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收来自IntentService的状态广播"><span class="nav-number">5.</span> <span class="nav-text">接收来自IntentService的状态广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-IntentService"><span class="nav-number">1.</span> <span class="nav-text">创建 IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Manifest-文件中定义-IntentService"><span class="nav-number">2.</span> <span class="nav-text">在 Manifest 文件中定义 IntentService</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-1"><span class="nav-number">2.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建任务请求并发送到-IntentService"><span class="nav-number">3.</span> <span class="nav-text">创建任务请求并发送到 IntentService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用-IntentService-发送任务状态"><span class="nav-number">4.</span> <span class="nav-text">利用 IntentService 发送任务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收来自-IntentService-的状态广播"><span class="nav-number">5.</span> <span class="nav-text">接收来自 IntentService 的状态广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
           </div>
         </section>

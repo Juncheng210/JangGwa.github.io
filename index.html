@@ -994,14 +994,14 @@
 
       
         
-          <p>IntentService为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外IntentService的执行还不受UI生命周期的影响，以此来确保AsyncTask能够顺利运行。</p>
-<p>但是IntentService有下面几个局限性：</p>
+          <p>IntentService 为在单一后台线程中执行任务提供了一种直接的实现方式。它可以处理一个耗时的任务并确保不影响到UI的响应性。另外 IntentService 的执行还不受 UI 生命周期的影响，以此来确保 AsyncTask 能够顺利运行。</p>
+<p>但是 IntentService 有下面几个局限性：</p>
 <ul>
-<li>不可以直接和UI做交互。为了把他执行的结果体现在UI上，需要把结果返回给Activity。</li>
+<li>不可以直接和 UI 做交互。为了把他执行的结果体现在UI上，需要把结果返回给 Activity。</li>
 <li>工作任务队列是顺序执行的，如果一个任务正在IntentService中执行，此时你再发送一个新的任务请求，这个新的任务会一直等待直到前面一个任务执行完毕才开始执行。</li>
 <li>正在执行的任务无法打断。</li>
 </ul>
-<p>虽然有上面那些限制，然而在在大多数情况下，IntentService都是执行简单后台任务操作的理想选择。
+<p>虽然有上面那些限制，然而在在大多数情况下，IntentService 都是执行简单后台任务操作的理想选择。
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/05/JangGwa浅谈IntentService/#more" rel="contents">
               阅读全文 &raquo;
