@@ -98,7 +98,7 @@
 何时以及如何避免创建对象
 如何确保对象适时地销毁
 如何管理对象销毁之前必须进行的各种清理动作">
-<meta property="og:updated_time" content="2016-09-19T04:29:57.000Z">
+<meta property="og:updated_time" content="2016-09-19T05:47:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="优雅地创建和销毁对象">
 <meta name="twitter:description" content="创建和销毁对象概述
@@ -330,7 +330,7 @@
 <li><strong>如何管理对象销毁之前必须进行的各种清理动作</strong><a id="more"></a></li>
 </ul>
 <h3 id="一-考虑用静态工厂方法代替构造器"><a href="#一-考虑用静态工厂方法代替构造器" class="headerlink" title="一.考虑用静态工厂方法代替构造器"></a>一.考虑用静态工厂方法代替构造器</h3><p>构造器是创建一个对象实例最基本也最通用的方法，大部分开发者在使用某个 class 的时候，首先需要考虑的就是如何构造和初始化一个对象示例，而构造的方式首先考虑到的就是通过构造函数来完成，因此在看 javadoc 中的文档时首先关注的函数也是构造器。然而在有些时候构造器并非我们唯一的选择，我们可以通过静态类工厂的方式来创建 class 的实例，如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">valueOf</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</div><div class="line">     <span class="keyword">return</span> b?Boolean.TRUE:Boolean.FALSE;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">valueOf</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> b?Boolean.TRUE:Boolean.FALSE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>相比于构造器，静态工厂方法的<strong>优势</strong>：</p>
 <p><strong>1.有意义的名称</strong></p>
 <p>构造方法本身没有名称，不能确切的返回描述返回的对象，具有适当名称的静态工厂方法更容易被使用，产生的代码也更容易被阅读。</p>
