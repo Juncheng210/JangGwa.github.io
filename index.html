@@ -257,6 +257,153 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/25/React Native 从零到一个小项目/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T11:40:37+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/React Native 从零到一个小项目/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/React Native 从零到一个小项目/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/25/React Native 从零到一个小项目/" class="leancloud_visitors" data-flag-title="">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>title: React Native 从零到一个小项目<br>date: 2016-12-13 08:19:07</p>
+<h2 id="tags-React-Native"><a href="#tags-React-Native" class="headerlink" title="tags: React Native"></a>tags: React Native</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前阵子开始学习 React Native，一个人摸滚带爬的也算是能写个<a href="https://github.com/JangGwa/ReactNativeMovie" target="_blank" rel="external">小项目</a>了，在这里分享一下自己从零开始学习的过程，也推荐一些比较优秀的学习资源，让大家学习过程可以提高一些效率。</p>
+<h2 id="在路上"><a href="#在路上" class="headerlink" title="在路上"></a>在路上</h2><h3 id="一、环境搭建和-IDE-选型"><a href="#一、环境搭建和-IDE-选型" class="headerlink" title="一、环境搭建和 IDE 选型"></a>一、环境搭建和 IDE 选型</h3><p>React Native 环境搭建可以看<a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">官网</a>,也可以去看笔者的<a href="http://www.jianshu.com/p/4d20a1ae7148" target="_blank" rel="external">上篇文章</a>，接下去是IDE 选型和配置的环节，有几种比较不错的 IDE：</p>
+<ul>
+<li><strong>Atom + Nuclide</strong>：Atom 本质上是一个文本编辑器，而不是一个 IDE，因此在用来开发 React Native 时需要配合 Nuclide 一起使用。</li>
+<li><strong>Sublime Text 3</strong>： 功能十分强大，主要在于它的插件机制。通过 Package Control 功能，可以安装各种需要的插件。</li>
+<li><strong>WebStorm</strong>：WebStorm 是著名的 JetBrains 公司开发的号称最智能的 Javascript 集成开发环境。</li>
+<li><strong>Visual Studio Code</strong>：Visual Studio Code 是微软推出的一个轻量级的开源 Web 集成开发环境。</li>
+</ul>
+<p>笔者选择了 WebStorm ，只有一个原因，那就是它和 Andoid Studio 很像(笔者是 Andorid Developer)。</p>
+<h3 id="二、学习基础知识"><a href="#二、学习基础知识" class="headerlink" title="二、学习基础知识"></a>二、学习基础知识</h3><p>因为没接触过 Web 前端这一块，所以第一天去学习了 JavaScript、html 和 css 一些基础的知识。记得那天疯狂的找学习的资料，刚开始在极客学院、慕课网这些学习网站上学习了一会，后面在知乎上还是 google 搜索到阮一峰大神的 <a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">es6</a> 教程，非常不错。同时，也推荐 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="external">MDN</a>，也是不错的学习 JavaScript 的地方。当时学习了一两天这些基础的知识，有了初步的了解。</p>
+<h3 id="三、了解-React-Native"><a href="#三、了解-React-Native" class="headerlink" title="三、了解 React Native"></a>三、了解 React Native</h3><p>接下去就开始疯狂的搜索 React Native 的学习资料，因为完全不知道怎么去写 React Native，所以找到了一些免费的视频学习资源，如果你想要一些学习资源的话，可以去 <a href="https://github.com/JangGwa/react-native-guide" target="_blank" rel="external">React Native 学习指南</a>看看，这边概括了很多优秀的学习资源，非常不错。说实话看视频效率实在有点低，你会发现视频只是在逐个讲解讲官网的组件和 Api ，所以笔者看了几天视频，对 React Native 有了初步了解后就没再接着看视频学习了。</p>
+<h3 id="四、学习优秀项目"><a href="#四、学习优秀项目" class="headerlink" title="四、学习优秀项目"></a>四、学习优秀项目</h3><p>当时笔者对 React Native 有了一点了解后，便去 GitHub 上寻找一些优秀的项目对其进行学习。这边给个<a href="https://github.com/crazycodeboy/react-native-awesome" target="_blank" rel="external">网站</a>，里面概括了一些优秀的项目。大家可以找一些 star 比较多的，然后更新时间比较近的项目进行学习，笔者是通过<a href="https://github.com/Bob1993/React-Native-Gank" target="_blank" rel="external">Gank.io</a>项目进行学习。关于如何学习，给个建议就是 clone 到本地后，按照项目作者的时间线去学习。当然学习过程中会遇到一些你不明白的知识点，那正是你去巩固 JavaScript 或是 React 知识的时候，这样巩固学习比光看书学习效率高多了。</p>
+<h3 id="五、写一个项目"><a href="#五、写一个项目" class="headerlink" title="五、写一个项目"></a>五、写一个项目</h3><p>开始单独写一个项目练手，可以是一个真实项目，也可以是一个小项目用开放的 Api 去完成。笔者写的<a href="https://github.com/JangGwa/ReactNativeMovie" target="_blank" rel="external">项目</a>是通过豆瓣 Api 实现的，UI 界面大家可以自行充当设计师去设计，图标可以去 <a href="http://www.iconfont.cn/plus" target="_blank" rel="external">Iconfont</a> 找。写完这个练手项目，你会更清楚如何去学习 React Native 。</p>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>首先看下效果图：</p>
+<p><img src="http://github.com/JangGwa/ReactNativeMovie/blob/master/pic/首页.png" width="320"><img src="https://github.com/JangGwa/ReactNativeMovie/blob/master/pic/推荐.png" width="320"><img src="https://github.com/JangGwa/ReactNativeMovie/blob/master/pic/电影详情.png" width="320"><img src="https://github.com/JangGwa/ReactNativeMovie/blob/master/pic/我的.png" width="320"></p>
+<p>项目中运用了一些常用的第三方库，关于第三方库大家可以去 <a href="https://js.coach/react-native#content" target="_blank" rel="external">js.coach</a> 查找。接下去对项目的界面和功能进行相应的介绍。</p>
+<p>1.界面下方的主 tab</p>
+<p>项目中有三个主 tab：首页、推荐和我的，通过 <strong>react-native-scrollable-tab-view</strong> 实现。使用示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        &lt;TabNavigator tabBarStyle=&#123;&#123; height: 60, overflow: 'hidden' &#125;&#125;&gt;</div><div class="line">          &lt;TabNavigator.Item</div><div class="line">              selected=&#123;this.state.selectedTab === 'home'&#125;</div><div class="line">              title="首页"</div><div class="line">              titleStyle=&#123;&#123;color: 'rgb(169,183,183)', fontSize: 11&#125;&#125;</div><div class="line">              selectedTitleStyle=&#123;&#123;color: 'rgb(234,128,16)', fontSize: 11&#125;&#125;</div><div class="line">              renderIcon=&#123;() =&gt; &lt;Image source=&#123;require('./images/home_normal.png')&#125;/&gt;&#125;</div><div class="line">              renderSelectedIcon=&#123;() =&gt; &lt;Image source=&#123;require('./images/home_selected.png')&#125;/&gt;&#125;</div><div class="line">              //badgeText ="1"</div><div class="line">              onPress=&#123;() =&gt; this.setState(&#123;selectedTab: 'home'&#125;)&#125;</div><div class="line">          &gt;</div><div class="line">            &lt; Home &#123;...this.props&#125;/&gt;</div><div class="line">          &lt;/TabNavigator.Item&gt;</div><div class="line"></div><div class="line">          &lt;TabNavigator.Item</div><div class="line">              selected=&#123;this.state.selectedTab === 'recommend'&#125;</div><div class="line">              title="推荐"</div><div class="line">              titleStyle=&#123;&#123;color: 'rgb(169,183,183)', fontSize: 11&#125;&#125;</div><div class="line">              selectedTitleStyle=&#123;&#123;color: 'rgb(234,128,16)', fontSize: 11&#125;&#125;</div><div class="line">              renderIcon=&#123;() =&gt; &lt;Image source=&#123;require('./images/recommend_normal.png')&#125;/&gt;&#125;</div><div class="line">              renderSelectedIcon=&#123;() =&gt; &lt;Image source=&#123;require('./images/recomm_selected.png')&#125;/&gt;&#125;</div><div class="line">              onPress=&#123;() =&gt; this.setState(&#123;selectedTab: 'recommend'&#125;)&#125;</div><div class="line">          &gt;</div><div class="line">            &lt; Recommend &#123;...this.props&#125; /&gt;</div><div class="line">          &lt;/TabNavigator.Item&gt;</div><div class="line"></div><div class="line">          &lt;TabNavigator.Item</div><div class="line">              selected=&#123;this.state.selectedTab === 'mine'&#125;</div><div class="line">              title="我的"</div><div class="line">              titleStyle=&#123;&#123;color: 'rgb(169,183,183)', fontSize: 11&#125;&#125;</div><div class="line">              selectedTitleStyle=&#123;&#123;color: 'rgb(234,128,16)', fontSize: 11&#125;&#125;</div><div class="line">              renderIcon=&#123;() =&gt; &lt;Image source=&#123;require('./images/mine_normal.png')&#125;/&gt;&#125;</div><div class="line">              renderSelectedIcon=&#123;() =&gt; &lt;Image source=&#123;require('./images/mine_selected.png')&#125;/&gt;&#125;</div><div class="line">              onPress=&#123;() =&gt; this.setState(&#123;selectedTab: 'mine'&#125;)&#125;</div><div class="line">          &gt;</div><div class="line">            &lt; Mine &#123; ...this.props &#125;/&gt;</div><div class="line">          &lt;/TabNavigator.Item&gt;</div><div class="line"></div><div class="line">        &lt;/TabNavigator&gt;</div><div class="line"></div><div class="line">    );</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>2.首页的图片轮播，使用了 <strong>react-native-viewpager</strong> 实现。使用示例如下：</p>
+<p>定义数据源</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.state = &#123;</div><div class="line">      dataSource: <span class="keyword">new</span> ViewPager.DataSource(&#123;</div><div class="line">        pageHasChanged: (p1, p2) =&gt; p1 !== p2</div><div class="line">      &#125;)</div><div class="line">    &#125;;</div><div class="line"></div><div class="line"> <span class="keyword">this</span>.setState(&#123;</div><div class="line">        dataSource: <span class="keyword">this</span>.state.dataSource.cloneWithPages(contentData),</div><div class="line">      &#125;);</div></pre></td></tr></table></figure>
+<p>应用 ViewPager 组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;ViewPager</div><div class="line">	dataSource=&#123;<span class="keyword">this</span>.state.dataSource&#125;</div><div class="line">	renderPage=&#123;<span class="keyword">this</span>.renderPage&#125;</div><div class="line">	isLoop=&#123;<span class="literal">true</span>&#125;</div><div class="line">	autoPlay=&#123;<span class="literal">true</span>&#125;&gt;</div><div class="line">&lt;/ViewPager&gt;</div></pre></td></tr></table></figure>
+<p>显示每个 Page 界面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_renderPage(data) &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        &lt;Image style=&#123; styles.pager &#125; source=&#123;&#123;uri: data.cover&#125;&#125;/&gt;</div><div class="line">    );</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>3.推荐列表的呈现，ListView 的运用，使用示例如下：</p>
+<p>设置数据源</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.state = &#123;</div><div class="line">      dataSource: <span class="keyword">new</span> ListView.DataSource(&#123;</div><div class="line">      rowHasChanged: (r1, r2) =&gt; r1 !== r2,</div><div class="line">      &#125;),</div><div class="line">      data: <span class="literal">null</span>,</div><div class="line">      loaded: <span class="literal">false</span>,</div><div class="line">      isRefreshing: <span class="literal">false</span>,</div><div class="line">      loadMore: <span class="literal">false</span>,</div><div class="line">      start: <span class="number">0</span>,</div><div class="line">      count: <span class="number">20</span>,</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p>应用 ListView 组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;ListView</div><div class="line">	dataSource = &#123;<span class="keyword">this</span>.state.dataSource&#125;</div><div class="line">	renderRow = &#123;<span class="keyword">this</span>._renderItem.bind(<span class="keyword">this</span>)&#125;</div><div class="line">	onEndReached=&#123;<span class="keyword">this</span>._loadMore.bind(<span class="keyword">this</span>)&#125;</div><div class="line">	renderFooter=&#123;<span class="keyword">this</span>._renderFooter.bind(<span class="keyword">this</span>)&#125;</div><div class="line">	onEndReachedThreshold = &#123;<span class="number">29</span>&#125;</div><div class="line">	refreshControl=&#123;</div><div class="line">		&lt;RefreshControl</div><div class="line">		refreshing=&#123;this.state.isRefreshing&#125;</div><div class="line">		onRefresh=&#123;this._refresh.bind(this)&#125;</div><div class="line">		tintColor='#aaaaaa'</div><div class="line">		title='Loading...'</div><div class="line">		progressBackgroundColor='#aaaaaa'/&gt;</div><div class="line">	&#125;&gt;</div><div class="line">&lt;/ListView&gt;</div></pre></td></tr></table></figure>
+<p>4.导航条的设置，使用 <strong>react-native-navbar</strong> 实现。使用示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;NavigationBar</div><div class="line">	style = &#123;&#123;height:<span class="number">40</span>&#125;&#125;</div><div class="line">	title=&#123;&#123;title: <span class="string">'首页'</span>&#125;&#125;</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<p>5.网络数据的获取，使用示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span> fetchData() &#123;</div><div class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(API_TOP);</div><div class="line">    <span class="keyword">let</span> responseJson = <span class="keyword">await</span> response.json();</div><div class="line">    <span class="keyword">let</span> responseData = responseJson.subjects;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      data: responseData,</div><div class="line">      dataSource: <span class="keyword">this</span>.state.dataSource.cloneWithRows(responseData),</div><div class="line">      loaded: <span class="literal">true</span>,</div><div class="line">      isRefreshing: <span class="literal">false</span>,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>项目中还需要进行完善优化，后续会学习redux对架构进行修整，也会学习性能方面对项目进行修改，也会增添一些动画效果。希望能和大家一起学习，一起进步。</p>
+<p><a href="https://github.com/JangGwa/ReactNativeMovie" target="_blank" rel="external">项目地址</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/30/React Native 环境搭建/" itemprop="url">
                   React Native 环境搭建
                 </a>
@@ -1257,121 +1404,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/" itemprop="url">
-                  JangGwa浅谈SwipeRefreshLayout
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T20:00:05+08:00" content="2016-08-06">
-              2016-08-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/JangGwa浅谈SwipeRefreshLayout/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/" class="leancloud_visitors" data-flag-title="JangGwa浅谈SwipeRefreshLayout">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="认知"><a href="#认知" class="headerlink" title="认知"></a>认知</h3><p>SwipeRefreshLayout是google推出的官方下拉刷新组件，继承自ViewGroup，在support v4兼容包下，但必须把你的support library的版本升级到19.1。</p>
-<p>SwipeRefreshLayout将通通过手势监听负责正确确定何时开始实际内容的刷新。</p>
-<p>如果侦听确定不应该有一个刷新，它必须调用setRefreshing（false）来取消刷新的任何可视指示。</p>
-<p>如果活动希望只显示进度动画，它应该调用setRefreshing（true）。<br>要禁用的姿态和进步的动画，在视图上调用的setEnabled（false）。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/06/JangGwa浅谈SwipeRefreshLayout/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1417,7 +1449,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
