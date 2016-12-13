@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://github.com/JangGwa/ReactNativeMovie/blob/master/pic/推荐.png">
 <meta property="og:image" content="https://github.com/JangGwa/ReactNativeMovie/blob/master/pic/电影详情.png">
 <meta property="og:image" content="https://github.com/JangGwa/ReactNativeMovie/blob/master/pic/我的.png">
-<meta property="og:updated_time" content="2016-12-13T13:14:18.000Z">
+<meta property="og:updated_time" content="2016-12-13T13:26:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 从零到一个小项目">
 <meta name="twitter:description" content="前言前阵子开始学习 React Native，一个人摸滚带爬的也算是能写个小项目了，在这里分享一下自己从零开始学习的过程，也推荐一些比较优秀的学习资源，让大家学习过程可以提高一些效率。">
@@ -352,7 +352,7 @@
 <p>5.网络数据的获取，使用示例如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span> fetchData() &#123;</div><div class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(API_TOP);</div><div class="line">    <span class="keyword">let</span> responseJson = <span class="keyword">await</span> response.json();</div><div class="line">    <span class="keyword">let</span> responseData = responseJson.subjects;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      data: responseData,</div><div class="line">      dataSource: <span class="keyword">this</span>.state.dataSource.cloneWithRows(responseData),</div><div class="line">      loaded: <span class="literal">true</span>,</div><div class="line">      isRefreshing: <span class="literal">false</span>,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>项目中还需要进行完善优化，后续会学习redux对架构进行修整，也会学习性能方面对项目进行修改，也会增添一些动画效果。希望能和大家一起学习，一起进步。</p>
-<p>[项目地址</p>
+<p><a href="https://github.com/JangGwa/ReactNativeMovie" target="_blank" rel="external">项目地址</a></p>
 
       
     </div>
